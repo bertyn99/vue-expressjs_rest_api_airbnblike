@@ -2,6 +2,12 @@ const express = require("express");
 const app = express();
 const cors = require('cors')
 
+var user= [
+  { id:0, name: 'bob'},
+  { id:1, name: 'bar'},
+  { id:2, name: 'chloé'}
+]
+
 app.get("/api/", (req, res) => {
   res.send("Accueil");
 });
@@ -10,11 +16,25 @@ app.post("/api/search", (req, res) => {
   res.send(req.query);
 });
 
+app.get("/api/users", (req, res) => {
+  res.send(user);
+});
 app.get("/api/user/:id", (req, res) => {
+  const u= user.find(u => u.id ==parseInt(req.params.id))
+  
+  if(!u) res.status(404).send('The user with given Id was not found')
+  res.send(u);
+  });
+
+app.post("/api/user/new", (req, res) => {
+  
+  });
+
+app.get("/api/user/goods/:id", (req, res) => {
     res.send(req.query);
   });
 
-app.post("/api/user/goods/:id", (req, res) => {
+app.post("/api/user/goods/new", (req, res) => {
     res.send(req.query);
   });
 
