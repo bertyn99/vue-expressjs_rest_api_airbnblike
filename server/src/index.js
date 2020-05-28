@@ -2,13 +2,21 @@ const express = require("express");
 const app = express();
 const cors = require('cors')
 
-app.get("/", (req, res) => {
+app.get("/api/", (req, res) => {
   res.send("Accueil");
 });
 
-app.get("/api/location", (req, res) => {
-  res.send([1, 2, 3]);
+app.post("/api/search", (req, res) => {
+  res.send(req.query);
 });
+
+app.get("/api/user/:id", (req, res) => {
+    res.send(req.query);
+  });
+
+app.post("/api/user/goods/:id", (req, res) => {
+    res.send(req.query);
+  });
 
 app.get("/api/location/:year/:month", (req, res) => {
   res.send(req.params);
@@ -19,14 +27,13 @@ app.get("/api/location/:year/:month", (req, res) => {
 
 /* TODO route 
     • get page d'accueil (présentation du site)
-    • get page recherche (lister des biens/chambres à louer)
     
     • post page recherche (lister des biens/chambres à louer)
-    • post système de recherche : tous les visiteurs peuvent filtrer les résultats par 
-    o la ville
-    o le nombre de places
-    o le prix à la nuitée par personne
-    o la date d’arrivée et la date de départ
+    • post système de recherche : tous les visiteurs peuvent filtrer les résultats par :
+        o la ville
+        o le nombre de places
+        o le prix à la nuitée par personne
+        o la date d’arrivée et la date de départ
    
 
 Les pages réservées aux membres connectés seront les suivantes :
