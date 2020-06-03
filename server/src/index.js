@@ -8,6 +8,8 @@ var user= [
   { id:2, name: 'chloé'}
 ]
 
+app.use(express.json())
+
 app.get("/api/", (req, res) => {
   res.send("Accueil");
 });
