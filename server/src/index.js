@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const db =require('./db/index')
 const cors = require('cors')
 
 var user= [
@@ -9,6 +10,15 @@ var user= [
 ]
 
 app.use(express.json())
+app.get('/', async(req,res,next) =>{
+    try {
+      let results = await db.all();
+      res.json(results);
+
+    }catch(e){
+       res.sendStatus(500)
+    }
+})
 
 app.get("/api/", (req, res) => {
   res.send("Accueil");
