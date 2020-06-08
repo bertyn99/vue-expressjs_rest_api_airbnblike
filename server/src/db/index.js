@@ -5,23 +5,8 @@ const pool = mariadb.createPool({
      database:'airbnb',
      user:'root', 
      password: '',
-     connectionLimit: 10
+     connectionLimit: 5
 });
-async function asyncFunction() {
-    let conn;
-    try { 
-      conn = await pool.getConnection();
-	const rows = await conn.query("SELECT 1 as val");
-	console.log(rows); //[ {val: 1}, meta: ... ]
-      const res = await conn.query("SELECT * ");
-      console.log(res); // { affectedRows: 1, insertId: 1, warningStatus: 0 }
-  
-    } catch (err) {
-      throw err;
-    } finally {
-      if (conn) return conn.end();
-    }
-  }
 
   
   let db={};
@@ -51,11 +36,29 @@ async function asyncFunction() {
           console.log("not connected due to error: " + err);
       });
       return rows
+    };
+
+    db.allUser=()=>{  
+      pool.getConnection()
+      .then(conn => {
+        conn.query('SELECT * from users').then(res => {
+          console.log(res.map(r => r))
+          rows= res.map(r => r)
+      });
+
+        conn.release(); //release to pool
+      })
+      .catch(err => {
+          console.log("not connected due to error: " + err);
+      });
+      return rows
     }
+ 
+    
     db.addUser=()=>{
 
     }
-    db.user=(userid)=>{
+    db.getuser=(userid)=>{
 
     }
 

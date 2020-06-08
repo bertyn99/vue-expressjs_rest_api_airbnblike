@@ -13,7 +13,6 @@ app.use(express.json())
 app.get('/', async(req,res,next) =>{
     try {
       let results = db.createTable();
-      console.log(results)
       res.send(results);
 
     }catch(e){
@@ -27,10 +26,17 @@ app.get("/api/", (req, res) => {
 
 app.post("/api/search", (req, res) => {
   res.send(req.query);
-});
+}); 
 
-app.get("/api/users", (req, res) => {
-  res.send(user);
+app.get("/api/users", async(req, res) => {
+  try {
+    let results = await db.allUser();
+    res.json(results);
+
+  }catch(e){
+     res.sendStatus(500)
+  }
+  
 });
 app.get("/api/user/:id", (req, res) => {
   const u= user.find(u => u.id ==parseInt(req.params.id))
