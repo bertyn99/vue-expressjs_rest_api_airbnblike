@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const db = require('./db/index')
 const cors = require('cors')
+const bodyParser = require('body-parser');
 
 var user= [
   { id:0, name: 'bob'},
@@ -10,9 +11,10 @@ var user= [
 ]
 
 app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', async(req,res,next) =>{
     try {
-      let results = db.createTable();
+      let results = db.all();
       res.send(results);
 
     }catch(e){
@@ -45,8 +47,24 @@ app.get("/api/user/:id", (req, res) => {
   res.send(u);
   });
 
-app.post("/api/user/new", (req, res) => {
-  
+app.post("/api/user/new", async(req, res) => {
+  try {
+    const user = {
+      nom:req.body.nom,
+      prenom:req.body.prenom,
+      tel:req.body.telephone,
+      email:req.body.email,
+      password:req.body.password,
+      host: false
+    }
+    console.log(req.body)
+    let results = await db.newUser(user);
+    res.send(results);
+
+  }catch(e){
+     res.sendStatus(500)
+  }
+
   });
 
 app.get("/api/user/goods/:id", (req, res) => {

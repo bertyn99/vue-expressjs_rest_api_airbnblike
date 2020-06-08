@@ -7,7 +7,7 @@ const pool = mariadb.createPool({
      password: '',
      connectionLimit: 5
 });
-
+pool.getConnection()
   
   let db={};
   db.all= ()=>{
@@ -39,14 +39,10 @@ const pool = mariadb.createPool({
     };
 
     db.allUser=()=>{  
-      pool.getConnection()
-      .then(conn => {
-        conn.query('SELECT * from users').then(res => {
+      
+        pool.query('SELECT * from users').then(res => {
           console.log(res.map(r => r))
           rows= res.map(r => r)
-      });
-
-        conn.release(); //release to pool
       })
       .catch(err => {
           console.log("not connected due to error: " + err);
@@ -55,7 +51,23 @@ const pool = mariadb.createPool({
     }
  
     
-    db.addUser=()=>{
+    db.newUser=(user)=>{ pool.getConnection()
+      .then(conn => {
+        conn.query(`INSERT INTO users (nom,prenom,tel,email,password,host) VALUES ('${user.nom}','${user.prenom}',${user.tel},'${user.email}','${user.password}',${user.host})`).then(res => {
+          console.log(res)
+          
+          
+      }).catch(err => {
+            //handle error
+            console.log("error insert due to"+err); 
+            conn.end();
+          });
+          return user.nom +"a bien été crée"
+        conn.release(); //release to pool
+      })
+      .catch(err => {
+          console.log("the new user wasnt created due to: " + err);
+      });
 
     }
     db.getuser=(userid)=>{
