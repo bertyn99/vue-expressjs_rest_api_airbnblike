@@ -54,24 +54,32 @@ pool.getConnection()
     db.newUser=(user)=>{ pool.getConnection()
       .then(conn => {
         conn.query(`INSERT INTO users (nom,prenom,tel,email,password,host) VALUES ('${user.nom}','${user.prenom}',${user.tel},'${user.email}','${user.password}',${user.host})`).then(res => {
-          console.log(res)
-          
           
       }).catch(err => {
             //handle error
             console.log("error insert due to"+err); 
             conn.end();
           });
-          return user.nom +"a bien été crée"
+          return `${user.nom} a bien été crée"`
         conn.release(); //release to pool
       })
       .catch(err => {
           console.log("the new user wasnt created due to: " + err);
       });
 
-    }
-    db.getuser=(userid)=>{
+    };
+    db.getUser=(id)=>{
+     
+        pool.query(`SELECT * FROM users WHERE iduser = ${id}`).then(res => {
+          console.log(res.map(r => r))
+          rows= res
+      }).catch(err => {
+            //handle error
+            console.log("error Get user due to"+err); 
 
+          });
+       return rows
+       
     }
 
     db.updateUser=(userid)=>{

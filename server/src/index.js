@@ -40,11 +40,18 @@ app.get("/api/users", async(req, res) => {
   }
   
 });
-app.get("/api/user/:id", (req, res) => {
-  const u= user.find(u => u.id ==parseInt(req.params.id))
-  
-  if(!u) res.status(404).send('The user with given Id was not found')
-  res.send(u);
+app.get("/api/user/:id", async(req, res) => {
+  let results
+    try {
+      console.log(parseInt(req.params.id))
+       results = await db.getUser(parseInt(req.params.id));
+       console.log(results)
+      res.send(results);
+
+    }catch(e){
+     res.status(404).send('The user with given Id was not found')
+    }
+ 
   });
 
 app.post("/api/user/new", async(req, res) => {
@@ -59,7 +66,8 @@ app.post("/api/user/new", async(req, res) => {
     }
     console.log(req.body)
     let results = await db.newUser(user);
-    res.send(results);
+    console.log(results)
+    res.json(results);
 
   }catch(e){
      res.sendStatus(500)
