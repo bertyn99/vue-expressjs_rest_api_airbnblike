@@ -30,17 +30,17 @@ app.post("/api/search", (req, res) => {
   res.send(req.query);
 }); 
 
-app.get("/api/users", async(req, res) => {
+app.get("/api/users/", async(req, res) => {
   try {
     let results = await db.allUser();
-    res.json(results);
-
+    res.send(results);
+ 
   }catch(e){
      res.sendStatus(500)
   }
   
 });
-app.get("/api/user/:id", async(req, res) => {
+app.get("/api/users/:id", async(req, res) => {
   let results
     try {
       console.log(parseInt(req.params.id))
@@ -54,7 +54,7 @@ app.get("/api/user/:id", async(req, res) => {
  
   });
 
-app.post("/api/user/new", async(req, res) => {
+app.post("/api/users/new", async(req, res) => {
   try {
     const user = {
       nom:req.body.nom,
@@ -74,6 +74,26 @@ app.post("/api/user/new", async(req, res) => {
   }
 
   });
+  app.put("/api/users/:id", async(req, res) => {
+    try {
+      const user = {
+        nom:req.body.nom,
+        prenom:req.body.prenom,
+        tel:req.body.telephone,
+        email:req.body.email,
+        password:req.body.password,
+        host: false
+      }
+      console.log(req.body)
+      let results = await db.newUser(user);
+      console.log(results)
+      res.json(results);
+  
+    }catch(e){
+       res.sendStatus(500)
+    }
+  
+    });
 
 app.get("/api/user/goods/:id", (req, res) => {
     res.send(req.query);

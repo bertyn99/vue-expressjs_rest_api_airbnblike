@@ -38,18 +38,17 @@ pool.getConnection()
       return rows
     };
 
-    db.allUser=()=>{  
-      
-        pool.query('SELECT * from users').then(res => {
-          console.log(res.map(r => r))
-          rows= res.map(r => r)
-      })
-      .catch(err => {
-          console.log("not connected due to error: " + err);
-      });
-      return rows
+    db.allUser=()=>{ 
+          pool.query('SELECT * from users').then(res => {
+            console.log(res.map(r => r))
+            rows= res.map(r => r)
+        })
+        .catch(err => {
+            console.log("not connected due to error: " + err);
+        });
+          return rows
+        
     }
- 
     
     db.newUser=(user)=>{ pool.getConnection()
       .then(conn => {
@@ -82,7 +81,21 @@ pool.getConnection()
        
     }
 
-    db.updateUser=(userid)=>{
+    db.updateUser=(id)=>{pool.getConnection()
+      .then(conn => {
+        conn.query(`INSERT INTO users (nom,prenom,tel,email,password,host) VALUES ('${user.nom}','${user.prenom}',${user.tel},'${user.email}','${user.password}',${user.host})`).then(res => {
+          
+      }).catch(err => {
+            //handle error
+            console.log("the new user wasnt update due to:"+err); 
+            conn.end();
+          });
+          return `${user.nom} a bien été crée"`
+        conn.release(); //release to pool
+      })
+      .catch(err => {
+          console.log("the new user wasnt connected due to: " + err);
+      });
 
     }
   module.exports= db
