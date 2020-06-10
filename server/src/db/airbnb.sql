@@ -52,6 +52,7 @@ CREATE TABLE IF NOT EXISTS reservation (
     idclient INT,
     idgood INT NOT NULL,
     debutsejour DATE ,
+    finsejour DATE ,
     prixtotal INT,
     annuler BOOLEAN,
     CONSTRAINT fk_reservation_user_id FOREIGN KEY (idclient) REFERENCES users(iduser),
