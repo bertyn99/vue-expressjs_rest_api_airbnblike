@@ -16,7 +16,6 @@ db.allUser= ()=>{
             if(err){
                 return reject(err);
             }
-
             return resolve(result)
         });
     });
@@ -42,7 +41,17 @@ db.newUser= (user)=>{
         });
     });
 };
-db.newUser= (user)=>{
+db.geGoods= (id)=>{
+    return new Promise((resolve,reject) =>{
+        pool.query('SELECT * from users WHERE iduser = ?',[id], (err, result)=>{
+            if(err){
+                return reject(err);
+            }
+            return resolve(result)
+        });
+    });
+};
+db.newGoods= (user)=>{
     return new Promise((resolve,reject) =>{
         pool.query('INSERT INTO users (nom,prenom,tel,email,password,host) VALUES (?,?,?,?,?,?)',[user.nom, user.prenom, user.tel, user.email,user.password,user.host], (err, result)=>{
             if(err){
