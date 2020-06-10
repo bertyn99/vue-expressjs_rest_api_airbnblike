@@ -8,6 +8,7 @@ npm install
 ### Compiles and hot-reloads for development
 ```
 npm run serve
+puis aller sur localhost:8080/
 ```
 
 ### Compiles and minifies for production

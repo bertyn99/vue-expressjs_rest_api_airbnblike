@@ -30,12 +30,13 @@ app.post("/api/search", (req, res) => {
   res.send(req.query);
 }); 
 
-app.get("/api/users/", async(req, res) => {
+app.get("/api/users/", async(req, res, next) => {
   try {
     let results = await db.allUser();
-    res.send(results);
+    res.json(results);
  
   }catch(e){
+    console.log(e)
      res.sendStatus(500)
   }
   
@@ -49,6 +50,7 @@ app.get("/api/users/:id", async(req, res) => {
       res.send(results);
 
     }catch(e){
+    console.log(e)
      res.status(404).send('The user with given Id was not found')
     }
  
