@@ -12,15 +12,6 @@ var user= [
 
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
-app.get('/', async(req,res,next) =>{
-    try {
-      let results = db.all();
-      res.send(results);
-
-    }catch(e){
-       res.sendStatus(500)
-    }
-})
 
 app.get("/api/", (req, res) => {
   res.send("Accueil");
@@ -44,11 +35,11 @@ app.get("/api/users/", async(req, res, next) => {
 app.get("/api/users/:id", async(req, res) => {
   let results
     try {
-      console.log(parseInt(req.params.id))
        results = await db.getUser(parseInt(req.params.id));
        console.log(results)
-      res.send(results);
-
+      if(result.length==0)res.status(404).send('The user with given Id was not found');
+      res.json(results);
+//if result!
     }catch(e){
     console.log(e)
      res.status(404).send('The user with given Id was not found')
@@ -97,10 +88,29 @@ app.post("/api/users/new", async(req, res) => {
   
     });
 
-app.get("/api/user/goods/:id", (req, res) => {
-    res.send(req.query);
+app.get("/api/user/goods/", (req, res) => {
+  try {
+    let results = await db.allUser();
+    res.json(results);
+ 
+  }catch(e){
+    console.log(e)
+     res.sendStatus(500)
+  }
+  
   });
 
+app.get("/api/user/goods/:id", (req, res) => {
+    try {
+      let results = await db.allUser();
+      res.json(results);
+   
+    }catch(e){
+      console.log(e)
+       res.sendStatus(500)
+    }
+    
+    });
 app.post("/api/user/goods/new", (req, res) => {
     res.send(req.query);
   });
