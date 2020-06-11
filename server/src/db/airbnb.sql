@@ -9,70 +9,73 @@ CREATE TABLE IF NOT EXISTS users (
     host BOOLEAN
 );
 
-CREATE TABLE IF NOT EXISTS goods (
+CREATE TABLE IF NOT EXISTS realEstate (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idhost INT,
     name VARCHAR(50),
-    nbrChambre INT,
+    nbrPlace INT,
     description VARCHAR(255),
-    CONSTRAINT fk_user_goods_id FOREIGN KEY (idhost) REFERENCES users(iduser)
+    pricePp INT,
+    CONSTRAINT fk_user_realEstate_id FOREIGN KEY (idhost) REFERENCES users(iduser)
 );
 
+/*
 CREATE TABLE IF NOT EXISTS bed(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idgood INT,
+    idestate INT,
     bedtyp ENUM('2 place','1 place'),
     nbrbed INT,
-    CONSTRAINT fk_bed_goods_id FOREIGN KEY (idgood) REFERENCES goods(id)
+    CONSTRAINT fk_bed_realEstate_id FOREIGN KEY (idestate) REFERENCES realEstate(id)
 );
+ if i had enough time
 CREATE TABLE IF NOT EXISTS facilities(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idgood INT,
+    idestate INT,
     gym BOOLEAN,
     pool BOOLEAN,
     hottub BOOLEAN,
     freeparking BOOLEAN,
-    CONSTRAINT fk_facilities_goods_id FOREIGN KEY (idgood) REFERENCES goods(id)
+    CONSTRAINT fk_facilities_realEstate_id FOREIGN KEY (idestate) REFERENCES realEstate(id)
 );
 
-CREATE TABLE IF NOT EXISTS Amenities(
+ CREATE TABLE IF NOT EXISTS Amenities(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idgood INT,
+    idestate INT,
     kitchen BOOLEAN,
     shampoo BOOLEAN,
     heating BOOLEAN,
     wifi BOOLEAN,
     tv BOOLEAN,
     washer BOOLEAN,
-    CONSTRAINT fk_amenities_goods_id FOREIGN KEY (idgood) REFERENCES goods(id)
-);
+    CONSTRAINT fk_amenities_realEstate_id FOREIGN KEY (idestate) REFERENCES realEstate(id)
+); */
 
 CREATE TABLE IF NOT EXISTS reservation (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idclient INT,
-    idgood INT NOT NULL,
+    idestate INT NOT NULL,
     debutsejour DATE ,
     finsejour DATE ,
     prixtotal INT,
     annuler BOOLEAN,
     CONSTRAINT fk_reservation_user_id FOREIGN KEY (idclient) REFERENCES users(iduser),
-    CONSTRAINT fk_reservation_goods_id FOREIGN KEY (idgood) REFERENCES users(id)
+    CONSTRAINT fk_reservation_realEstate_id FOREIGN KEY (idestate) REFERENCES users(id)
 );
 
-CREATE TABLE IF NOT EXISTS Country(
+CREATE TABLE IF NOT EXISTS city(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(200)
 );
 
 CREATE TABLE IF NOT EXISTS localisation(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    idgood INT,
-    idcontry INT,
+    idestate INT,
+    idcity INT,
     streetaddress INT,
     road VARCHAR(255),
-    city VARCHAR(255),
-    stat VARCHAR(255),
-    CONSTRAINT fk_localistaion_country_id FOREIGN KEY (idcountry) REFERENCES country(id),
+    code INT,
+    details VARCHAR(200),
+    CONSTRAINT fk_localistaion_city_id FOREIGN KEY (idcity) REFERENCES city(id)
 );
 
 
