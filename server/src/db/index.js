@@ -20,17 +20,6 @@ db.allUser= ()=>{
         });
     });
 };
-
-db.getUser= (id)=>{
-    return new Promise((resolve,reject) =>{
-        pool.query('SELECT * from users WHERE iduser = ?',[id], (err, result)=>{
-            if(err){
-                return reject(err);
-            }
-            return resolve(result)
-        });
-    });
-};
 db.newUser= (user)=>{
     return new Promise((resolve,reject) =>{
         pool.query('INSERT INTO users (nom,prenom,tel,email,password,host) VALUES (?,?,?,?,?,?)',[user.nom, user.prenom, user.tel, user.email,user.password,user.host], (err, result)=>{
@@ -41,7 +30,7 @@ db.newUser= (user)=>{
         });
     });
 };
-db.getGood= (id)=>{
+db.getUser= (id)=>{
     return new Promise((resolve,reject) =>{
         pool.query('SELECT * from users WHERE iduser = ?',[id], (err, result)=>{
             if(err){
@@ -51,7 +40,7 @@ db.getGood= (id)=>{
         });
     });
 };
-db.getGoods= ()=>{
+db.updateUser= (id)=>{
     return new Promise((resolve,reject) =>{
         pool.query('SELECT * from users WHERE iduser = ?',[id], (err, result)=>{
             if(err){
@@ -61,9 +50,40 @@ db.getGoods= ()=>{
         });
     });
 };
-db.newGoods= (user)=>{
+
+db.newRealEstate= (good)=>{
     return new Promise((resolve,reject) =>{
-        pool.query('INSERT INTO goods (nom,prenom,tel,email,password,host) VALUES (?,?,?,?,?,?)',[user.nom, user.prenom, user.tel, user.email,user.password,user.host], (err, result)=>{
+        pool.query('INSERT INTO goods (nom,prenom,tel,email,password,host) VALUES (?,?,?,?,?,?)',[good.nom, good.prenom, good.tel, good.email,good.password,good.host], (err, result)=>{
+            if(err){
+                return reject(err);
+            }
+            return resolve(result)
+        });
+    });
+};
+db.getRealEstate= ()=>{
+    return new Promise((resolve,reject) =>{
+        pool.query('SELECT * from users WHERE iduser = ?',[id], (err, result)=>{
+            if(err){
+                return reject(err);
+            }
+            return resolve(result)
+        });
+    });
+};
+db.updateRealEstate= (good)=>{
+    return new Promise((resolve,reject) =>{
+        pool.query('INSERT INTO goods (nom,prenom,tel,email,password,host) VALUES (?,?,?,?,?,?)',[good.nom, good.prenom, good.tel, good.email,good.password,good.host], (err, result)=>{
+            if(err){
+                return reject(err);
+            }
+            return resolve(result)
+        });
+    });
+};
+db.getAllRealEstate= ()=>{
+    return new Promise((resolve,reject) =>{
+        pool.query('SELECT * from realEstate', (err, result)=>{
             if(err){
                 return reject(err);
             }
