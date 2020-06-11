@@ -88,9 +88,9 @@ app.post("/api/users/new", async(req, res) => {
   
     });
 
-app.get("/api/user/goods/", (req, res) => {
+app.get("/api/user/goods/",  async(req, res) => {
   try {
-    let results = await db.allUser();
+    let results = await db.getGoods();
     res.json(results);
  
   }catch(e){
@@ -100,9 +100,9 @@ app.get("/api/user/goods/", (req, res) => {
   
   });
 
-app.get("/api/user/goods/:id", (req, res) => {
+app.get("/api/user/goods/:id",  async(req, res) => {
     try {
-      let results = await db.allUser();
+      let results = await db.getGood(parseInt(req.params.id));
       res.json(results);
    
     }catch(e){
