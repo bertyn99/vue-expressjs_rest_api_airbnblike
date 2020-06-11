@@ -59,5 +59,20 @@ CREATE TABLE IF NOT EXISTS reservation (
     CONSTRAINT fk_reservation_goods_id FOREIGN KEY (idgood) REFERENCES users(id)
 );
 
+CREATE TABLE IF NOT EXISTS Country(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(200)
+);
+
+CREATE TABLE IF NOT EXISTS localisation(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    idgood INT,
+    idcontry INT,
+    streetaddress INT,
+    road VARCHAR(255),
+    city VARCHAR(255),
+    stat VARCHAR(255),
+    CONSTRAINT fk_localistaion_country_id FOREIGN KEY (idcountry) REFERENCES country(id),
+);
 
 
