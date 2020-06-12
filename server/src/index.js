@@ -3,7 +3,8 @@ const app = express();
 const db = require('./db/index')
 const cors = require('cors')
 const bodyParser = require('body-parser');
-
+const Good =require('./model/good');
+const Localisation =require('./localisation')
 var user= [
   { id:0, name: 'bob'},
   { id:1, name: 'bar'},
@@ -88,9 +89,9 @@ app.post("/api/users/new", async(req, res) => {
   
     });
 
-app.get("/api/user/goods/",  async(req, res) => {
+app.get("/api/goods/",  async(req, res) => {
   try {
-    let results = await db.getGoods();
+    let results = await db.getAllRealEstate();    
     res.json(results);
  
   }catch(e){
@@ -100,7 +101,7 @@ app.get("/api/user/goods/",  async(req, res) => {
   
   });
 
-app.get("/api/user/goods/:id",  async(req, res) => {
+app.get("/api/user/:id/goods/:id",  async(req, res) => {
     try {
       let results = await db.getGood(parseInt(req.params.id));
       res.json(results);
@@ -111,8 +112,18 @@ app.get("/api/user/goods/:id",  async(req, res) => {
     }
     
     });
-app.post("/api/user/goods/new", (req, res) => {
-    res.send(req.query);
+app.post("/api/user/:id/goods/new", async(req, res) => {
+  try {
+  const address=new Location(req.body.city, req.body.streetaddress, req.body.road, req.body.details)
+  const good= new Good(parseInt(req.params.id), req.body.name, req.body.Place, req.body.descripption, req.body.pricePp, address)
+ 
+    let results = await db.newRealEstate(good);
+    res.json(results);
+    
+  }catch(e){
+    console.log(e)
+     res.sendStatus(500)
+  }
   });
 
 app.get("/api/location/:year/:month", (req, res) => {
