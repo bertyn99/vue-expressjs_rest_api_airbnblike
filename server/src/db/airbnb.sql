@@ -62,20 +62,16 @@ CREATE TABLE IF NOT EXISTS reservation (
     CONSTRAINT fk_reservation_realEstate_id FOREIGN KEY (idestate) REFERENCES users(id)
 );
 
-CREATE TABLE IF NOT EXISTS city(
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(200)
-);
 
 CREATE TABLE IF NOT EXISTS localisation(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     idestate INT,
-    idcity INT,
+    city VARCHAR(255),
     streetaddress INT,
     road VARCHAR(255),
     code INT,
     details VARCHAR(200),
-    CONSTRAINT fk_localistaion_city_id FOREIGN KEY (idcity) REFERENCES city(id)
+    CONSTRAINT fk_localistaion_realEstate_id FOREIGN KEY (idestate) REFERENCES realEstate(id)
 );
 
 
