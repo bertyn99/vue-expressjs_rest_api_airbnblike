@@ -111,9 +111,9 @@ app.get("/api/goods/", async (req, res) => {
 
 });
 
-app.get("/api/user/:id/goods/:id", async (req, res) => {
+app.get("/api/user/:id/goods/", async (req, res) => {
   try {
-    let results = await db.getRealEstate(parseInt(req.params.id));
+    let results = await db.getRealEstateOfUser(parseInt(req.params.id));
     res.json(results);
 
   } catch (e) {
