@@ -122,6 +122,8 @@ app.get("/api/user/:id/goods/", async (req, res) => {
   }
 
 });
+
+
 app.post("/api/user/:id/goods/new", async (req, res) => {
   try {
     const address = new Location(req.body.city, req.body.streetaddress, req.body.road, req.body.details)
@@ -135,7 +137,17 @@ app.post("/api/user/:id/goods/new", async (req, res) => {
     res.sendStatus(500)
   }
 });
+app.put("/api/user/:id/goods/:id", async (req, res) => {
+  try {
+    let results = await db.updateRealEstateOfUser(parseInt(req.params.id));
+    res.json(results);
 
+  } catch (e) {
+    console.log(e)
+    res.sendStatus(500)
+  }
+
+});
 
 
 app.get("/api/location/:year/:month", (req, res) => {
