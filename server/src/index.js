@@ -5,19 +5,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const Good = require('./model/good');
 const Localisation = require('./model/localisation')
-var user = [{
-    id: 0,
-    name: 'bob'
-  },
-  {
-    id: 1,
-    name: 'bar'
-  },
-  {
-    id: 2,
-    name: 'chloé'
-  }
-]
+const userRoute = require('./routes/user')
 
 app.use(express.json())
 app.use(cors());
@@ -33,145 +21,13 @@ app.post("/api/search", (req, res) => {
   res.send(req.query);
 });
 
-app.get("/api/users/", async (req, res, next) => {
-  try {
-    let results = await db.allUser();
-    res.json(results);
 
-  } catch (e) {
-    console.log(e)
-    res.sendStatus(500)
-  }
-
-});
-app.get("/api/users/:id", async (req, res) => {
-  let results
-  try {
-    results = await db.getUser(parseInt(req.params.id));
-    console.log(results)
-    if (!results) res.status(404).send('The user with given Id was not found');
-    res.json(results[0]);
-    //if result!
-  } catch (e) {
-    console.log(e)
-    res.status(404).send('The user with given Id was not found')
-  }
-
-});
-
-app.post("/api/users/new", async (req, res) => {
-  try {
-    const user = {
-      nom: req.body.nom,
-      prenom: req.body.prenom,
-      tel: req.body.telephone,
-      email: req.body.email,
-      password: req.body.password,
-      host: false
-    }
-    console.log(req.body)
-    let results = await db.newUser(user);
-    console.log(results)
-    res.json(results);
-
-  } catch (e) {
-    res.sendStatus(500)
-  }
-
-});
-app.put("/api/users/:id", async (req, res) => {
-   try {
-   
-    let form=[]
-    for (const property in req.body) {
-      if(req.body[property]){
-        var ob=JSON.parse(`{ "${property}" : "${req.body[property]}" }`)
-        form.push(ob)
-      }}
-    
-      form= form.reduce(function(result, item) {
-          var key = Object.keys(item)[0]; //first property: a, b, c
-          result[key] = item[key];
-          return result;
-        }, {});
-      
-
-      let results = await db.updateUser(form,parseInt(req.params.id));
-      console.log(results)
-      res.json(results); 
-  
-  } catch (e) {
-     res.sendStatus(500) 
-  } 
-
-  
-});
-
-app.get("/api/goods/", async (req, res) => {
-  try {
-    let results = await db.getAllRealEstate();
-    res.json(results);
-
-  } catch (e) {
-    console.log(e)
-    res.sendStatus(500)
-  }
-
-});
-
-app.get("/api/user/:id/goods/", async (req, res) => {
-  try {
-    console.log(req.params.id)
-    let results = await db.getRealEstateOfUser(parseInt(req.params.id));
-    res.json(results);
-
-  } catch (e) {
-    console.log(e)
-    res.sendStatus(500)
-  }
-
-});
+//user route
+app.use('/api/users', userRoute);
 
 
-app.post("/api/user/:id/goods/new", async (req, res) => {
-  try {
-    const address = new Localisation(req.body.city, req.body.streetaddress, req.body.road, req.body.code, req.body.details);
-    const estate = new Good(parseInt(req.params.id), req.body.name, req.body.place, req.body.description, req.body.pricePp, address)
 
-
-    let results = await db.newRealEstate(estate);
-    res.json(results);
-
-  } catch (e) {
-    console.log(e)
-    res.sendStatus(500)
-  }
-});
-app.put("/api/user/:id/goods/:id", async (req, res) => {
-  try {
-    let form=[]
-    for (const property in req.body) {
-      if(req.body[property]){
-        var ob=JSON.parse(`{ "${property}" : "${req.body[property]}" }`)
-        form.push(ob)
-      }}
-    
-      form= form.reduce(function(result, item) {
-          var key = Object.keys(item)[0]; //first property: a, b, c
-          result[key] = item[key];
-          return result;
-        }, {});
-        console.log(req.params.id)
-     let results = await db.updateRealEstate(form,parseInt(req.params.id));
-    res.json(results); 
-
-  } catch (e) {
-    console.log(e)
-    res.sendStatus(500)
-  }
-
-});
-
+//goods route
 
 app.get("/api/location/:year/:month", (req, res) => {
   res.send(req.params);
