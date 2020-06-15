@@ -4,7 +4,7 @@ const db = require('./db/index')
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const Good = require('./model/good');
-const Localisation = require('./localisation')
+const Localisation = require('./model/localisation')
 var user = [{
     id: 0,
     name: 'bob'
@@ -20,6 +20,7 @@ var user = [{
 ]
 
 app.use(express.json())
+app.use(cors());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -113,6 +114,7 @@ app.get("/api/goods/", async (req, res) => {
 
 app.get("/api/user/:id/goods/", async (req, res) => {
   try {
+    console.log(req.params.id)
     let results = await db.getRealEstateOfUser(parseInt(req.params.id));
     res.json(results);
 
@@ -126,10 +128,11 @@ app.get("/api/user/:id/goods/", async (req, res) => {
 
 app.post("/api/user/:id/goods/new", async (req, res) => {
   try {
-    const address = new Location(req.body.city, req.body.streetaddress, req.body.road, req.body.details)
-    const good = new Good(parseInt(req.params.id), req.body.name, req.body.Place, req.body.descripption, req.body.pricePp, address)
+    const address = new Localisation(req.body.city, req.body.streetaddress, req.body.road, req.body.code, req.body.details);
+    const estate = new Good(parseInt(req.params.id), req.body.name, req.body.place, req.body.description, req.body.pricePp, address)
 
-    let results = await db.newRealEstate(good);
+
+    let results = await db.newRealEstate(estate);
     res.json(results);
 
   } catch (e) {
