@@ -3,8 +3,12 @@ const app = express();
 const db = require('./db/index')
 const cors = require('cors')
 const bodyParser = require('body-parser');
+
+//Model
 const Good = require('./model/good');
 const Localisation = require('./model/localisation')
+
+//Routes
 const userRoute = require('./routes/user');
 const goodsRoute = require('./routes/goods')
 
