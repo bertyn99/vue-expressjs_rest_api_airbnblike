@@ -26,10 +26,22 @@ router.get("/goods/:id", async (req, res) => {
   
   });
   
-  router.get("/:id/goods/", async (req, res) => {
+  router.get("/users/:userid/goods/:id", async (req, res) => {
     try {
-      console.log(req.params.id)
-      let results = await db.getRealEstateOfUser(parseInt(req.params.id));
+      
+      let results = await db.getRealEstateOfUser(parseInt(req.params.userid),parseInt(req.params.id));
+      res.json(results);
+  
+    } catch (e) {
+      console.log(e)
+      res.sendStatus(500)
+    }
+  
+  });
+  router.get("/users/:userid/goods/", async (req, res) => {
+    try {
+     
+      let results = await db.getAllRealEstateOfUser(parseInt(req.params.userid));
       res.json(results);
   
     } catch (e) {
@@ -39,8 +51,7 @@ router.get("/goods/:id", async (req, res) => {
   
   });
   
-  
-  router.post("/:id/goods/new", async (req, res) => {
+  router.post("/users/:id/goods/new", async (req, res) => {
     try {
       const address = new Localisation(req.body.city, req.body.streetaddress, req.body.road, req.body.code, req.body.details);
       const estate = new Good(parseInt(req.params.id), req.body.name, req.body.place, req.body.description, req.body.pricePp, address)

@@ -80,7 +80,17 @@ db.getRealEstate = (id) => {
         });
     });
 };
-db.getRealEstateOfUser = (id) => {
+db.getRealEstateOfUser = (userid,id) => {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * from realEstate WHERE idhost = ? AND id=?', [userid,id], (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(result)
+        });
+    });
+};
+db.getAllRealEstateOfUser = (id) => {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * from realEstate WHERE idhost = ?', [id], (err, result) => {
             if (err) {
