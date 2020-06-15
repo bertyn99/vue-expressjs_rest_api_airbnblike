@@ -5,7 +5,8 @@ const cors = require('cors')
 const bodyParser = require('body-parser');
 const Good = require('./model/good');
 const Localisation = require('./model/localisation')
-const userRoute = require('./routes/user')
+const userRoute = require('./routes/user');
+const goodsRoute = require('./routes/goods')
 
 app.use(express.json())
 app.use(cors());
@@ -23,11 +24,12 @@ app.post("/api/search", (req, res) => {
 
 
 //user route
-app.use('/api/users', userRoute);
+app.use('/api/users/', userRoute);
 
 
 
 //goods route
+app.use('/api/', goodsRoute);
 
 app.get("/api/location/:year/:month", (req, res) => {
   res.send(req.params);

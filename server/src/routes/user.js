@@ -17,13 +17,13 @@ router.get("/", async (req, res, next) => {
     let results
     try {
       results = await db.getUser(parseInt(req.params.id));
-      console.log(results)
-      if (!results) res.status(404).send('The user with given Id was not found');
+      console.log(results[0])
+      if (results.length == 0) res.status(404).send('The user with given Id was not found');
       res.json(results[0]);
       //if result!
     } catch (e) {
-      console.log(e)
-      res.status(404).send('The user with given Id was not found')
+      /* console.log(e)
+      res.status(404).send('The user with given Id was not found') */
     }
   
   });
