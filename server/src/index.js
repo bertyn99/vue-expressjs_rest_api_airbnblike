@@ -3,16 +3,26 @@ const app = express();
 const db = require('./db/index')
 const cors = require('cors')
 const bodyParser = require('body-parser');
-const Good =require('./model/good');
-const Localisation =require('./model/localisation')
-var user= [
-  { id:0, name: 'bob'},
-  { id:1, name: 'bar'},
-  { id:2, name: 'chloé'}
+const Good = require('./model/good');
+const Localisation = require('./localisation')
+var user = [{
+    id: 0,
+    name: 'bob'
+  },
+  {
+    id: 1,
+    name: 'bar'
+  },
+  {
+    id: 2,
+    name: 'chloé'
+  }
 ]
 
 app.use(express.json())
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
 
 app.get("/api/", (req, res) => {
   res.send("Accueil");
@@ -20,42 +30,42 @@ app.get("/api/", (req, res) => {
 
 app.post("/api/search", (req, res) => {
   res.send(req.query);
-}); 
+});
 
-app.get("/api/users/", async(req, res, next) => {
+app.get("/api/users/", async (req, res, next) => {
   try {
     let results = await db.allUser();
     res.json(results);
- 
-  }catch(e){
-    console.log(e)
-     res.sendStatus(500)
-  }
-  
-});
-app.get("/api/users/:id", async(req, res) => {
-  let results
-    try {
-       results = await db.getUser(parseInt(req.params.id));
-       console.log(results)
-      if(result.length==0)res.status(404).send('The user with given Id was not found');
-      res.json(results);
-//if result!
-    }catch(e){
-    console.log(e)
-     res.status(404).send('The user with given Id was not found')
-    }
- 
-  });
 
-app.post("/api/users/new", async(req, res) => {
+  } catch (e) {
+    console.log(e)
+    res.sendStatus(500)
+  }
+
+});
+app.get("/api/users/:id", async (req, res) => {
+  let results
+  try {
+    results = await db.getUser(parseInt(req.params.id));
+    console.log(results)
+    if (result.length == 0) res.status(404).send('The user with given Id was not found');
+    res.json(results);
+    //if result!
+  } catch (e) {
+    console.log(e)
+    res.status(404).send('The user with given Id was not found')
+  }
+
+});
+
+app.post("/api/users/new", async (req, res) => {
   try {
     const user = {
-      nom:req.body.nom,
-      prenom:req.body.prenom,
-      tel:req.body.telephone,
-      email:req.body.email,
-      password:req.body.password,
+      nom: req.body.nom,
+      prenom: req.body.prenom,
+      tel: req.body.telephone,
+      email: req.body.email,
+      password: req.body.password,
       host: false
     }
     console.log(req.body)
@@ -63,68 +73,82 @@ app.post("/api/users/new", async(req, res) => {
     console.log(results)
     res.json(results);
 
-  }catch(e){
-     res.sendStatus(500)
+  } catch (e) {
+    res.sendStatus(500)
   }
 
-  });
-  app.put("/api/users/:id", async(req, res) => {
-    try {
-      const user = {
-        nom:req.body.nom,
-        prenom:req.body.prenom,
-        tel:req.body.telephone,
-        email:req.body.email,
-        password:req.body.password,
-        host: false
-      }
-      console.log(req.body)
-      let results = await db.newUser(user);
-      console.log(results)
-      res.json(results);
-  
-    }catch(e){
-       res.sendStatus(500)
-    }
-  
-    });
-
-app.get("/api/goods/",  async(req, res) => {
+});
+app.put("/api/users/:id", async (req, res) => {
   try {
-    let results = await db.getAllRealEstate();    
+    const user = {
+      nom: req.body.nom,
+      prenom: req.body.prenom,
+      tel: req.body.telephone,
+      email: req.body.email,
+      password: req.body.password,
+      host: false
+    }
+    console.log(req.body)
+    let results = await db.newUser(user);
+    console.log(results)
     res.json(results);
- 
-  }catch(e){
-    console.log(e)
-     res.sendStatus(500)
-  }
-  
-  });
 
-app.get("/api/user/:id/goods/:id",  async(req, res) => {
-    try {
-      let results = await db.getGood(parseInt(req.params.id));
-      res.json(results);
-   
-    }catch(e){
-      console.log(e)
-       res.sendStatus(500)
-    }
-    
-    });
-app.post("/api/user/:id/goods/new", async(req, res) => {
+  } catch (e) {
+    res.sendStatus(500)
+  }
+
+});
+
+app.get("/api/goods/", async (req, res) => {
   try {
-  const address=new Location(req.body.city, req.body.streetaddress, req.body.road, req.body.details)
-  const good= new Good(parseInt(req.params.id), req.body.name, req.body.Place, req.body.descripption, req.body.pricePp, address)
- 
+    let results = await db.getAllRealEstate();
+    res.json(results);
+
+  } catch (e) {
+    console.log(e)
+    res.sendStatus(500)
+  }
+
+});
+
+app.get("/api/user/:id/goods/", async (req, res) => {
+  try {
+    let results = await db.getRealEstateOfUser(parseInt(req.params.id));
+    res.json(results);
+
+  } catch (e) {
+    console.log(e)
+    res.sendStatus(500)
+  }
+
+});
+
+
+app.post("/api/user/:id/goods/new", async (req, res) => {
+  try {
+    const address = new Location(req.body.city, req.body.streetaddress, req.body.road, req.body.details)
+    const good = new Good(parseInt(req.params.id), req.body.name, req.body.Place, req.body.descripption, req.body.pricePp, address)
+
     let results = await db.newRealEstate(good);
     res.json(results);
-    
-  }catch(e){
+
+  } catch (e) {
     console.log(e)
-     res.sendStatus(500)
+    res.sendStatus(500)
   }
-  });
+});
+app.put("/api/user/:id/goods/:id", async (req, res) => {
+  try {
+    let results = await db.updateRealEstateOfUser(parseInt(req.params.id));
+    res.json(results);
+
+  } catch (e) {
+    console.log(e)
+    res.sendStatus(500)
+  }
+
+});
+
 
 app.get("/api/location/:year/:month", (req, res) => {
   res.send(req.params);
@@ -170,6 +194,6 @@ Le montant se calcule de la manière suivante : prix à la nuitée x nombre de j
     • get solde hôte (affiche le montant du solde  de l'hote )
     • put solde hôte (modifie le montant du solde  de l'hote en fonction des réservation)
     • post envoi d’un mail de confirmation de la réservation au client et à l’hôte 
-- */    
+- */
 
 app.listen(3000, () => console.log("Listening on port 3000..."));
