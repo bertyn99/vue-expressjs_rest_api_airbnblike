@@ -40,9 +40,9 @@ db.getUser = (id) => {
         });
     });
 };
-db.updateUser = (id) => {
+db.updateUser = (user,id) => {
     return new Promise((resolve, reject) => {
-        pool.query('SELECT * from users WHERE iduser = ?', [id], (err, result) => {
+        pool.query('UPDATE users SET ?  WHERE iduser = ?', [user,id], (err, result) => {
             if (err) {
                 return reject(err);
             }
@@ -90,19 +90,32 @@ db.getRealEstateOfUser = (id) => {
         });
     });
 };
-db.updateRealEstate = (good) => {
+db.updateRealEstate = (good,id) => {
     return new Promise((resolve, reject) => {
-        /*  const sel= `SELECT id FROM realestate WHERE name=\'${good.name}\' AND idhost=${good.idhost} AND pricePp=${good.pricePp}`
-         */
-        pool.query('INSERT INTO realEstate (idhost,name,nbrPlace,description,pricePp) VALUES (?,?,?,?,?,?);\n' +
-            'INSERT INTO location (city,streetaddress,road,code,details) VALUES (?,?,?,?,?)', [good.idhost, good.name, good.nbrPlace, good.description, goodpriceRp, sel, good.streetaddress, good.road, good.code, good.details], (err, result) => {
+         const sel= `SELECT id FROM realestate WHERE  id={good.pricePp} AND pricePp=$`
+         
+        if (good.name || good.prenom || good.nbrPlace|| good.description|| good.pricePp) {
+            pool.query('UPDATE realEstate SET ?  WHERE id = ?'
+            , [good,id], (err, result) => {
 
 
                 if (err) {
                     return reject(err);
                 }
+                resolve(result)
+            });
+        } else {
+            
+        pool.query('UPDATE localisation SET ?  WHERE id = ?', [good,id], (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
                 return resolve(result)
             });
+        }
+        
+
+            
     });
 };
 db.getAllRealEstate = () => {
