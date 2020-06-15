@@ -4,7 +4,7 @@ const db = require('./db/index')
 const cors = require('cors')
 const bodyParser = require('body-parser');
 const Good =require('./model/good');
-const Localisation =require('./localisation')
+const Localisation =require('./model/localisation')
 var user= [
   { id:0, name: 'bob'},
   { id:1, name: 'bar'},
