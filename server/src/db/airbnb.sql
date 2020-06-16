@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS users (
     prenom VARCHAR(255),
     tel INT,
     email VARCHAR(255),
-    password  VARCHAR(50),
+    password  VARCHAR(200),
     host BOOLEAN
 );
 
