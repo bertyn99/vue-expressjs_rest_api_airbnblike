@@ -3,7 +3,7 @@ const db = require('../db/index')
 const router = express.Router();
 
 //auth
-const
+const verify = require('./verifytoken')
 
 //lib
 const bcrypt = require('bcrypt');
@@ -95,11 +95,12 @@ router.get("/", async (req, res, next) => {
    
     //Create and assign a token 
     const token = jwt.sign({id: userExist[0].iduser}, process.env.TOKEN_SECRET)
-    res.header('auth-token', token);
+    res.header('Auth-token', token);
     res.send('Logged in')
   });
 
-  router.put("/:id", async (req, res) => {
+  router.put("/:id", verify, async (req, res) => {
+    console.log('t')
      try {
      
       let form=[]
@@ -108,7 +109,7 @@ router.get("/", async (req, res, next) => {
           var ob=JSON.parse(`{ "${property}" : "${req.body[property]}" }`)
           form.push(ob)
         }}
-      
+        
         form= form.reduce(function(result, item) {
             var key = Object.keys(item)[0]; //first property: a, b, c
             result[key] = item[key];
