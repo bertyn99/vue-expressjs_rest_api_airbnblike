@@ -6,6 +6,5 @@ module.exports = class User {
         this.tel = tel;
         this.email = email;
         this.passwd = passwd;
-        this.host = false
     }
 }
