@@ -2,13 +2,20 @@ const express = require('express')
 const db = require('../db/index')
 const router = express.Router();
 
+//auth
+const
+
 //lib
 const bcrypt = require('bcrypt');
 const jwt =require('jsonwebtoken')
+const dotenv =require('dotenv')
 
 //model 
 const User = require('../model/user');
 const {registerValidation, loginValidation}= require('../model/validation')
+
+
+dotenv.config();
 
 router.get("/", async (req, res, next) => {
     try {
@@ -85,8 +92,10 @@ router.get("/", async (req, res, next) => {
     const validPass =  await bcrypt.compare(req.body.password, userExist[0].password);
 
     if(!validPass) return res.status(400).send('Invalid password')
-
-    
+   
+    //Create and assign a token 
+    const token = jwt.sign({id: userExist[0].iduser}, process.env.TOKEN_SECRET)
+    res.header('auth-token', token);
     res.send('Logged in')
   });
 
