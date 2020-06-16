@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS users (
     tel INT,
     email VARCHAR(255),
     password  VARCHAR(200),
-    host BOOLEAN
 );
 
 CREATE TABLE IF NOT EXISTS realEstate (
