@@ -69,7 +69,7 @@ router.get("/", async (req, res, next) => {
      try { 
       let user= new User(req.body.nom, req.body.prenom, req.body.telephone, req.body.email, hashedPassword, false)
       let results = await db.newUser(user);  
-      console.log(user);       
+      console.log(results);       
       res.json(results);  
     } catch (e) {
      
