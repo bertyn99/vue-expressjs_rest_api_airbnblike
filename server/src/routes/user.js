@@ -72,7 +72,7 @@ router.get("/", async (req, res, next) => {
       console.log(results);       
       res.json(results);  
     } catch (e) {
-     
+      console.log(e); 
       res.sendStatus(500)
     } 
   
