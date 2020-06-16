@@ -36,6 +36,8 @@ app.use('/api/users/', userRoute);
 //goods route
 app.use('/api/', goodsRoute);
 
+
+
 app.get("/api/location/:year/:month", (req, res) => {
   res.send(req.params);
 });

@@ -10,6 +10,17 @@ const pool = mysql.createPool({
 });
 
 let db = {};
+db.getUserMailIfExist = (data) => {
+    return new Promise((resolve, reject) => {
+        pool.query('SELECT * from users  WHERE email = ?',[data], (err, result) => {
+            if (err) {
+                return reject(err);
+            }
+            return resolve(result)
+        });
+    });
+};
+
 db.allUser = () => {
     return new Promise((resolve, reject) => {
         pool.query('SELECT * from users', (err, result) => {

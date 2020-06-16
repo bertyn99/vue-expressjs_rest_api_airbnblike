@@ -41,32 +41,42 @@ router.get("/", async (req, res, next) => {
     if(error) return res.status(400).send(error.details[0].message)
    
     //checking if user is already in the database
-    const emailExist =0
-   
+    const emailExist = await db.getUserMailIfExist(req.body.email)
+   console.log(emailExist)
+    if(emailExist.length ==1 ) return res.status(400).send('Email already exist')
     //encrypt le mot de passe
-   await bcrypt.hash(req.body.password, 10, async function(err, hash) {
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
+ /*   await bcrypt.hash(req.body.password, 10, async function(err, hash) {
             // Store hash in your password DB.
-            let user= new User(req.body.nom, req.body.prenom, req.body.telephone, req.body.email, hash, false)
-           
-           console.log(user); 
+            
 
            //create new user
            let results = await db.newUser(user);
-           res.json(results);  
+           
            return user
         });
-        
-   /*  try { 
-      console.log("tot")
-      console.log(u);
-      
-  
+         */
+     try { 
+      let user= new User(req.body.nom, req.body.prenom, req.body.telephone, req.body.email, hashedPassword, false)
+      let results = await db.newUser(user);  
+      console.log(user);       
+      res.json(results);  
     } catch (e) {
-        console.log(e)
+     
       res.sendStatus(500)
-    } */
+    } 
   
   });
+  
+  router.post('/login', (req, res)=> {
+    //validate data
+    const {error}= loginValidation(req.body)
+    if(error) return res.status(400).send(error.details[0].message)
+  
+  });
+
   router.put("/:id", async (req, res) => {
      try {
      
