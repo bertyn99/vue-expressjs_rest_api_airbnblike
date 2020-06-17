@@ -4,21 +4,20 @@
         <p>For more information visit website</p>
         <b-button variant="danger" href="#">More Info</b-button>
       </b-jumbotron>
-      <component :is="AnnonceCard"></component>
-
+      <AnnonceCard nom="bertyn" description="bbhhi"></AnnonceCard>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import AnnonceCard from '@/components/AnnonceCard.vue'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Home',
   components: {
     AnnonceCard
-  }, computed: {
-    
-  }
+  },
+  computed: { ...mapState(['goods', 'loading']) }
 }
 </script>
