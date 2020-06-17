@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 Vue.use(Vuex)
 const URL = 'http://151.80.57.11:3000/api/users'
@@ -9,8 +10,8 @@ export default new Vuex.Store({
     loading: true
   },
   mutations: {
-    updatePosts (state, posts) {
-      state.posts = posts
+    updatePosts (state, goods) {
+      state.goods = goods
     },
     changeLoadingState (state, loading) {
       state.loading = loading
