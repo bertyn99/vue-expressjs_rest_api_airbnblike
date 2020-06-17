@@ -1,17 +1,22 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <b-jumbotron header="AirbnbLike" lead="Location de bien entre particuliers">
+        <p>For more information visit website</p>
+        <b-button variant="danger" href="#">More Info</b-button>
+      </b-jumbotron>
+      <component :is="AnnonceCard"></component>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import AnnonceCard from '@/components/AnnonceCard.vue'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    AnnonceCard
   }
 }
 </script>
