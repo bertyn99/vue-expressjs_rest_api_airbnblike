@@ -17,6 +17,8 @@ export default {
   name: 'Home',
   components: {
     AnnonceCard
+  }, computed: {
+    
   }
 }
 </script>
