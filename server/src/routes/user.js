@@ -45,7 +45,7 @@ router.get("/", async (req, res, next) => {
   
   router.post("/signup", async (req, res) => {
     //validate data
-   const {error}= registerValidation(req.body)
+    const {error}= registerValidation(req.body)
     if(error) return res.status(400).send(error.details[0].message)
    
     //checking if user is already in the database
@@ -67,7 +67,7 @@ router.get("/", async (req, res, next) => {
         });
          */
      try { 
-      let user= new User(req.body.nom, req.body.prenom, req.body.telephone, req.body.email, hashedPassword, false)
+      let user= new User(req.body.nom, req.body.prenom, req.body.telephone, req.body.email, hashedPassword, '', false)
       let results = await db.newUser(user);  
       console.log(user);       
       res.json(results);  
