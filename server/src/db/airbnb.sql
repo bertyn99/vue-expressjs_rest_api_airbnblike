@@ -6,6 +6,8 @@ CREATE TABLE IF NOT EXISTS users (
     tel INT,
     email VARCHAR(255),
     password  VARCHAR(200),
+    imgUrl VARCHAR(255),
+    host BOOLEAN
 );
 
 CREATE TABLE IF NOT EXISTS realEstate (
@@ -14,6 +16,7 @@ CREATE TABLE IF NOT EXISTS realEstate (
     name VARCHAR(50),
     nbrPlace INT,
     description VARCHAR(255),
+    imgUrl VARCHAR(255),
     pricePp INT,
     CONSTRAINT fk_user_realEstate_id FOREIGN KEY (idhost) REFERENCES users(iduser)
 );
