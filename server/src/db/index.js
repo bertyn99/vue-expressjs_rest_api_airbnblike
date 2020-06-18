@@ -33,7 +33,7 @@ db.allUser = () => {
 };
 db.newUser = (user) => {
     return new Promise((resolve, reject) => {
-        pool.query('INSERT INTO users (nom,prenom,tel,email,password,host) VALUES (?,?,?,?,?,?)', [user.nom, user.prenom, user.tel, user.email, user.passwd, user.host], (err, result) => {
+        pool.query('INSERT INTO users (nom,prenom,tel,email,password,imgUrl,host) VALUES (?,?,?,?,?,,?)', [user.nom, user.prenom, user.tel, user.email, user.passwd, user.host], (err, result) => {
             if (err) {
                 return reject(err);
             }
@@ -65,7 +65,7 @@ db.updateUser = (user,id) => {
 db.newRealEstate = (good) => {
     return new Promise((resolve, reject) => {
         const sel = `(SELECT id FROM realestate WHERE name='${good.name}' AND idhost=${good.idhost} AND pricePp=${good.pricePp})`
-        pool.query('INSERT INTO realEstate (idhost,name,nbrPlace,description,pricePp) VALUES (?,?,?,?,?);', [good.idhost, good.name, good.nbrPlace, good.description, good.pricePp], (err, result) => {
+        pool.query('INSERT INTO realEstate (idhost,name,nbrPlace,description,imgUrl,pricePp) VALUES (?,?,?,?,?);', [good.idhost, good.name, good.nbrPlace, good.description,good.imgUrl, good.pricePp], (err, result) => {
                 if (err) {
                     return reject(err);
                 }
@@ -115,7 +115,7 @@ db.updateRealEstate = (good,id) => {
     return new Promise((resolve, reject) => {
          const sel= `SELECT id FROM realestate WHERE  id={good.pricePp} AND pricePp=$`
          
-        if (good.name || good.prenom || good.nbrPlace|| good.description|| good.pricePp) {
+        if (good.name || good.prenom || good.nbrPlace|| good.description|| good.imgUrl || good.pricePp) {
             pool.query('UPDATE realEstate SET ?  WHERE id = ?'
             , [good,id], (err, result) => {
 

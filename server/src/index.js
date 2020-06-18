@@ -3,7 +3,8 @@ const app = express();
 const db = require('./db/index')
 const cors = require('cors')
 const bodyParser = require('body-parser');
-
+const multer = require('multer');
+const upload = multer({dest: '/uploads/'});
 
 //Model
 const Good = require('./model/good');
