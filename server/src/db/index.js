@@ -35,11 +35,7 @@ db.allUser = () => {
 };
 db.newUser = (user) => {
     return new Promise((resolve, reject) => {
-<<<<<<< HEAD
-        pool.query('INSERT INTO users (nom,prenom,tel,email,password) VALUES (?,?,?,?,?)', [user.nom, user.prenom, user.tel, user.email, user.passwd], (err, result) => {
-=======
         pool.query('INSERT INTO users (nom,prenom,tel,email,password,imgUrl,host) VALUES (?,?,?,?,?,NULL,?)', [user.nom, user.prenom, user.tel, user.email, user.passwd, user.host], (err, result) => {
->>>>>>> c1db01a25a8014f62d90c0b513674cc5e82160c5
             if (err) {
                 return reject(err);
             }
