@@ -79,15 +79,15 @@ Racine du serveur api:
 |--|--|--|--|
 | goods/:id | get | renvoie les info de l'annonce avec l'id correspondant |  |
 | goods/:id | put | mettre a jour les info de l'annonce  avce l'id correspondant |  |
-| /users/:userid/goods/:id | post | se connecter |  |
+| /users/:userid/goods/:id | post | renvoie les info d'une annonces d'un user correspondant |  |
 | /users/:userid/goods/ | post | s'incrire |  |
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDYwMzY5MDQyLDE5OTA2MzkwMDEsNTg0OT
-E3NjY0LDE5NTQ1Njc1NjcsLTc2Njc2ODY3NCwxMjA2OTYyNzMy
-LC04MzY3NTE1ODcsOTEwNTI3OTU4LC02MDc5MzAzNDIsLTE5Nz
-g2NTIyNDcsLTMzMjQ1NTM2M119
+eyJoaXN0b3J5IjpbLTE4MTU0NjEwOTgsMTk5MDYzOTAwMSw1OD
+Q5MTc2NjQsMTk1NDU2NzU2NywtNzY2NzY4Njc0LDEyMDY5NjI3
+MzIsLTgzNjc1MTU4Nyw5MTA1Mjc5NTgsLTYwNzkzMDM0MiwtMT
+k3ODY1MjI0NywtMzMyNDU1MzYzXX0=
 -->
