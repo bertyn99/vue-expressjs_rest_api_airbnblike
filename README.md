@@ -58,11 +58,12 @@ Import le ficher suivant dans le phpadmin
 Pour pouvoir aller dans /server faire de mem
 
 	npm install
+0100000000..........................................................................................................................................................................
 
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTg0Mzc5OTk2OCwxOTU0NTY3NTY3LC03Nj
+eyJoaXN0b3J5IjpbMTQ0MjAxOTQzNywxOTU0NTY3NTY3LC03Nj
 Y3Njg2NzQsMTIwNjk2MjczMiwtODM2NzUxNTg3LDkxMDUyNzk1
 OCwtNjA3OTMwMzQyLC0xOTc4NjUyMjQ3LC0zMzI0NTUzNjNdfQ
 ==
