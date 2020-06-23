@@ -11,12 +11,16 @@ App en vue js et avec une Restfull api en Express
 		 index.js
 		 
  - /model
-		-user.js
-		-goods.js
-		-localalisation.js
-		-imgUrl.js
+		user.js
+		goods.js
+		localalisation.js
+		imgUrl.js
  
  - /routes
+		 goods.js
+		 user.js
+		 verifytoken.js
+		 search.js
 
 ### Client
 
@@ -39,6 +43,7 @@ Pour pouvoir aller dans /server faire de mem
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTgzNjc1MTU4Nyw5MTA1Mjc5NTgsLTYwNz
-kzMDM0MiwtMTk3ODY1MjI0NywtMzMyNDU1MzYzXX0=
+eyJoaXN0b3J5IjpbLTg5MTgyMTM4NCwtODM2NzUxNTg3LDkxMD
+UyNzk1OCwtNjA3OTMwMzQyLC0xOTc4NjUyMjQ3LC0zMzI0NTUz
+NjNdfQ==
 -->
