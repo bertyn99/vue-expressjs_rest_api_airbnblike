@@ -87,11 +87,11 @@ Racine du serveur api:
 |--|--|--|--|
 |  | get | renvoie les info de **la réservation** avec l'id correspondant |  |
 |  | get | renvoie les info de **toute les réservation** du bien correspondant |  |
-|  | put | mettre a jour les info de **la réservation**  avce l'id correspondant |  |
-|  | post | Créer **la réservation** d'un user correspondant |  |
+|  | put | mettre a jour les info **d'une réservation**  du bien correspondant |  |
+|  | post | Créer **la réservation** d'un user  correspondant |  |
 |  | post | Annuler **une réservation**  les info des annonces  |  |
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0Mjg4NjQ4MDIsMjQzMjk0NDU1LDE5OT
+eyJoaXN0b3J5IjpbLTEyNjgyNjI5NDMsMjQzMjk0NDU1LDE5OT
 A2MzkwMDEsNTg0OTE3NjY0LDE5NTQ1Njc1NjcsLTc2Njc2ODY3
 NCwxMjA2OTYyNzMyLC04MzY3NTE1ODcsOTEwNTI3OTU4LC02MD
 c5MzAzNDIsLTE5Nzg2NTIyNDcsLTMzMjQ1NTM2M119
