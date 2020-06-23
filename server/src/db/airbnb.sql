@@ -73,4 +73,14 @@ CREATE TABLE IF NOT EXISTS localisation(
     CONSTRAINT fk_localistaion_realEstate_id FOREIGN KEY (idestate) REFERENCES realEstate(id)
 );
 
-
+/*Insert*/
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (1, 1, 'Giant Forget-me-not', 6, 'nunc proin at turpis a pede posuere nonummy integer non velit donec diam neque vestibulum eget vulputate', 23.55);
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (2, 2, 'Velvet Lupine', 2, 'tempus sit amet sem fusce consequat nulla nisl nunc nisl duis bibendum felis sed interdum', 22.08);
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (3, 1, 'Lindheimer''s Beebalm', 6, 'lacus morbi quis tortor id nulla ultrices aliquet maecenas leo odio condimentum id luctus nec molestie sed justo pellentesque', 39.58);
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (4, 1, 'Manyfruit Cyanea', 5, 'ut dolor morbi vel lectus in quam fringilla rhoncus mauris enim leo rhoncus', 62.1);
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (5, 1, 'Purplemat', 2, 'donec diam neque vestibulum eget vulputate ut ultrices vel augue vestibulum ante ipsum primis in faucibus', 39.86);
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (6, 3, 'Quillaja', 4, 'orci luctus et ultrices posuere cubilia curae mauris viverra diam vitae quam suspendisse potenti nullam porttitor lacus at turpis', 49.27);
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (7, 1, 'Glandular Plantain', 4, 'non sodales sed tincidunt eu felis fusce posuere felis sed lacus morbi sem mauris laoreet ut rhoncus aliquet', 57.87);
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (8, 1, 'Amazonlily', 6, 'ut erat curabitur gravida nisi at nibh in hac habitasse platea', 24.74);
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (9, 2, 'Diplotomma Lichen', 4, 'sed lacus morbi sem mauris laoreet ut rhoncus aliquet pulvinar sed nisl nunc rhoncus', 34.76);
+insert into realEstate (id, idhost, name, nbrPlace, description, pricePp) values (10, 1, 'Water Cowbane', 3, 'at feugiat non pretium quis lectus suspendisse potenti in eleifend', 39.61);
