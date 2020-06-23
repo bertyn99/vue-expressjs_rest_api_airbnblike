@@ -60,8 +60,15 @@ Import le ficher suivant dans le phpadmin
 Pour pouvoir aller dans /server faire de mem
 
 	npm install
+	
+## Requette API
+|Type de Requette|  |||
+|G||
+|  |  |
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTg0OTE3NjY0LDE5NTQ1Njc1NjcsLTc2Nj
-c2ODY3NCwxMjA2OTYyNzMyLC04MzY3NTE1ODcsOTEwNTI3OTU4
-LC02MDc5MzAzNDIsLTE5Nzg2NTIyNDcsLTMzMjQ1NTM2M119
+eyJoaXN0b3J5IjpbOTI5ODkzNTYyLDU4NDkxNzY2NCwxOTU0NT
+Y3NTY3LC03NjY3Njg2NzQsMTIwNjk2MjczMiwtODM2NzUxNTg3
+LDkxMDUyNzk1OCwtNjA3OTMwMzQyLC0xOTc4NjUyMjQ3LC0zMz
+I0NTUzNjNdfQ==
 -->
