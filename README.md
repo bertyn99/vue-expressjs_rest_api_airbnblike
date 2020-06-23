@@ -81,6 +81,7 @@ Racine du serveur api:
 | goods/:id | put | mettre a jour les info de **l'annonce**  avce l'id correspondant |  |
 | /users/:userid/goods/:id | get | renvoie les info **d'une annonce** d'un user correspondant |  |
 | /users/:userid/goods/ | get | renvoie les info des annonces d'un **user** |  |
+| /users/:id/goods/new | post | mettre a jour les info **du user** avce l'id correspondant |  |
 
 ### Reservation
 | Requete | Type   | Explication | Json |  
@@ -91,9 +92,9 @@ Racine du serveur api:
 |  | post | Créer **la réservation** d'un user  correspondant |  |
 |  | post | Annuler **une réservation**  les info des annonces  |  |
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTM1NjgzNjk2NSwtMTI2ODI2Mjk0MywyND
-MyOTQ0NTUsMTk5MDYzOTAwMSw1ODQ5MTc2NjQsMTk1NDU2NzU2
-NywtNzY2NzY4Njc0LDEyMDY5NjI3MzIsLTgzNjc1MTU4Nyw5MT
-A1Mjc5NTgsLTYwNzkzMDM0MiwtMTk3ODY1MjI0NywtMzMyNDU1
-MzYzXX0=
+eyJoaXN0b3J5IjpbMTUzMjQ1NjAyMywxMzU2ODM2OTY1LC0xMj
+Y4MjYyOTQzLDI0MzI5NDQ1NSwxOTkwNjM5MDAxLDU4NDkxNzY2
+NCwxOTU0NTY3NTY3LC03NjY3Njg2NzQsMTIwNjk2MjczMiwtOD
+M2NzUxNTg3LDkxMDUyNzk1OCwtNjA3OTMwMzQyLC0xOTc4NjUy
+MjQ3LC0zMzI0NTUzNjNdfQ==
 -->
