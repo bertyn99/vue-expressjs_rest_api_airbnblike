@@ -85,13 +85,13 @@ Racine du serveur api:
 ### Reservation
 | Requete | Type   | Explication | Json |  
 |--|--|--|--|
-|  | get | renvoie les info de **l'annonce** avec l'id correspondant |  |
-|  | put | mettre a jour les info de **l'annonce**  avce l'id correspondant |  |
-|  | post | renvoie les info **d'une annonce** d'un user correspondant |  |
+|  | get | renvoie les info de **la réservation** avec l'id correspondant |  |
+|  | put | mettre a jour les info de **la réservation**  avce l'id correspondant |  |
+|  | post | Créer la les info **la réservation** d'un user correspondant |  |
 |  | post | renvoie les info des annonces d'un **user** |  |
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwODU4MTQ2MywxOTkwNjM5MDAxLDU4ND
-kxNzY2NCwxOTU0NTY3NTY3LC03NjY3Njg2NzQsMTIwNjk2Mjcz
-MiwtODM2NzUxNTg3LDkxMDUyNzk1OCwtNjA3OTMwMzQyLC0xOT
-c4NjUyMjQ3LC0zMzI0NTUzNjNdfQ==
+eyJoaXN0b3J5IjpbLTE2NTgxNjM1MTksMTk5MDYzOTAwMSw1OD
+Q5MTc2NjQsMTk1NDU2NzU2NywtNzY2NzY4Njc0LDEyMDY5NjI3
+MzIsLTgzNjc1MTU4Nyw5MTA1Mjc5NTgsLTYwNzkzMDM0MiwtMT
+k3ODY1MjI0NywtMzMyNDU1MzYzXX0=
 -->
