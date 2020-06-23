@@ -5,8 +5,8 @@ App en vue js et avec une Restfull api en Express
 ## Architecture du projet 
 ### Server
 /src
-	`dd
 
+ - 
 
 ### Client
 
@@ -27,6 +27,6 @@ Pour pouvoir aller dans /server faire de mem
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTQyNzcyNzcwNiwtMTk3ODY1MjI0NywtMz
-MyNDU1MzYzXX0=
+eyJoaXN0b3J5IjpbLTE2MTA0NDE3NDEsLTE5Nzg2NTIyNDcsLT
+MzMjQ1NTM2M119
 -->
