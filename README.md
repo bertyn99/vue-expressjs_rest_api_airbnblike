@@ -77,7 +77,7 @@ Racine du serveur api:
 ### Goods
 | Requete | Type   | Explication | Json |  
 |--|--|--|--|
-| goods/:id | get | renvoie les info de l'annonce avec l'id correspondant |  |
+| goods/:id | get | renvoie les info de **l'annonce** avec l'id correspondant |  |
 | goods/:id | put | mettre a jour les info de **l'annonce**  avce l'id correspondant |  |
 | /users/:userid/goods/:id | post | renvoie les info **d'une annonce** d'un user correspondant |  |
 | /users/:userid/goods/ | post | renvoie les info des annonces d'un **user** |  |
@@ -86,8 +86,8 @@ Racine du serveur api:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNDY0ODMwOTgsMTk5MDYzOTAwMSw1OD
-Q5MTc2NjQsMTk1NDU2NzU2NywtNzY2NzY4Njc0LDEyMDY5NjI3
-MzIsLTgzNjc1MTU4Nyw5MTA1Mjc5NTgsLTYwNzkzMDM0MiwtMT
-k3ODY1MjI0NywtMzMyNDU1MzYzXX0=
+eyJoaXN0b3J5IjpbLTIzMzkwNTU0LDE5OTA2MzkwMDEsNTg0OT
+E3NjY0LDE5NTQ1Njc1NjcsLTc2Njc2ODY3NCwxMjA2OTYyNzMy
+LC04MzY3NTE1ODcsOTEwNTI3OTU4LC02MDc5MzAzNDIsLTE5Nz
+g2NTIyNDcsLTMzMjQ1NTM2M119
 -->
