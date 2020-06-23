@@ -69,8 +69,8 @@ Racine du serveur api:
 ### User
 | Requete | Type   | Explication | Json |  
 |--|--|--|--|
-| users/:id| get | renvoie les info du user avec l'io correspondant |  |
-| users/:id | put | mettre a jour les info du user avce l'id correspondant |  |
+| users/:id| get | renvoie les info **du user** avec l'id correspondant |  |
+| users/:id | put | mettre a jour les info **du user** avce l'id correspondant |  |
 | users/login | post | se connecter |  |
 | users/signup | post | s'incrire |  |
 
@@ -78,15 +78,15 @@ Racine du serveur api:
 | Requete | Type   | Explication | Json |  
 |--|--|--|--|
 | goods/:id | get | renvoie les info de l'annonce avec l'id correspondant |  |
-| goods/:id | put | mettre a jour les info de l'annonce  avce l'id correspondant |  |
-| /users/:userid/goods/:id | post | renvoie les info d'une annonces d'un user correspondant |  |
-| /users/:userid/goods/ | post | s'incrire |  |
+| goods/:id | put | mettre a jour les info de **l'annonce**  avce l'id correspondant |  |
+| /users/:userid/goods/:id | post | renvoie les info **d'une annonce** d'un user correspondant |  |
+| /users/:userid/goods/ | post | renvoie les info des annonces d'un **user** |  |
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MTU0NjEwOTgsMTk5MDYzOTAwMSw1OD
+eyJoaXN0b3J5IjpbLTEzNDY0ODMwOTgsMTk5MDYzOTAwMSw1OD
 Q5MTc2NjQsMTk1NDU2NzU2NywtNzY2NzY4Njc0LDEyMDY5NjI3
 MzIsLTgzNjc1MTU4Nyw5MTA1Mjc5NTgsLTYwNzkzMDM0MiwtMT
 k3ODY1MjI0NywtMzMyNDU1MzYzXX0=
