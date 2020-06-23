@@ -66,9 +66,10 @@ Racine du serveur api:
 
 > http://151.80.57.11/
 
+### User
 | Requete | Type   | Explication | Json |  
 |--|--|--|--|
-| / |  |  |  |
+| /:id| get | re |  |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
@@ -77,7 +78,7 @@ Racine du serveur api:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTczNzMyNjU1NiwxOTkwNjM5MDAxLDU4ND
+eyJoaXN0b3J5IjpbLTEwOTM3NjQ4OCwxOTkwNjM5MDAxLDU4ND
 kxNzY2NCwxOTU0NTY3NTY3LC03NjY3Njg2NzQsMTIwNjk2Mjcz
 MiwtODM2NzUxNTg3LDkxMDUyNzk1OCwtNjA3OTMwMzQyLC0xOT
 c4NjUyMjQ3LC0zMzI0NTUzNjNdfQ==
