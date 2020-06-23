@@ -62,10 +62,13 @@ Pour pouvoir aller dans /server faire de mem
 	npm install
 	
 ## Requette API
-Racine du serveur api
+Racine du serveur api:
+
+> http://151.80.57.11/
+
 | Requete | Type   | Explication | Json |  
 |--|--|--|--|
-|  |  |  |  |
+| / |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
@@ -74,8 +77,8 @@ Racine du serveur api
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwODc5Nzg0MDksMTk5MDYzOTAwMSw1OD
-Q5MTc2NjQsMTk1NDU2NzU2NywtNzY2NzY4Njc0LDEyMDY5NjI3
-MzIsLTgzNjc1MTU4Nyw5MTA1Mjc5NTgsLTYwNzkzMDM0MiwtMT
-k3ODY1MjI0NywtMzMyNDU1MzYzXX0=
+eyJoaXN0b3J5IjpbLTczNzMyNjU1NiwxOTkwNjM5MDAxLDU4ND
+kxNzY2NCwxOTU0NTY3NTY3LC03NjY3Njg2NzQsMTIwNjk2Mjcz
+MiwtODM2NzUxNTg3LDkxMDUyNzk1OCwtNjA3OTMwMzQyLC0xOT
+c4NjUyMjQ3LC0zMzI0NTUzNjNdfQ==
 -->
