@@ -62,13 +62,13 @@ Pour pouvoir aller dans /server faire de mem
 	npm install
 	
 ## Requette API
-|Type de Requette|  |||
-|G||
+|Type de Requette|  |
+|--|--|
 |  |  |
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTI5ODkzNTYyLDU4NDkxNzY2NCwxOTU0NT
-Y3NTY3LC03NjY3Njg2NzQsMTIwNjk2MjczMiwtODM2NzUxNTg3
-LDkxMDUyNzk1OCwtNjA3OTMwMzQyLC0xOTc4NjUyMjQ3LC0zMz
-I0NTUzNjNdfQ==
+eyJoaXN0b3J5IjpbLTc1MzYwMjE2Nyw1ODQ5MTc2NjQsMTk1ND
+U2NzU2NywtNzY2NzY4Njc0LDEyMDY5NjI3MzIsLTgzNjc1MTU4
+Nyw5MTA1Mjc5NTgsLTYwNzkzMDM0MiwtMTk3ODY1MjI0NywtMz
+MyNDU1MzYzXX0=
 -->
