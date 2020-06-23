@@ -6,7 +6,10 @@ App en vue js et avec une Restfull api en Express
 ### Server
 /src
 
- - 
+ - /db
+	
+ - /model
+ - /routes
 
 ### Client
 
@@ -27,6 +30,6 @@ Pour pouvoir aller dans /server faire de mem
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2MTA0NDE3NDEsLTE5Nzg2NTIyNDcsLT
-MzMjQ1NTM2M119
+eyJoaXN0b3J5IjpbLTUxNDcwMjc5MywtMTk3ODY1MjI0NywtMz
+MyNDU1MzYzXX0=
 -->
