@@ -11,8 +11,10 @@ App en vue js et avec une Restfull api en Express
 		 index.js
 		 
  - /model
-		-
-		-
+		-user.js
+		-goods.js
+		-localalisation.js
+		-imgUrl.js
  
  - /routes
 
@@ -27,7 +29,7 @@ Pour pouvoir aller dans /client faire un
 	npm install
 
  - ### Server
-Import le ficher suivant dans le php amini
+Import le ficher suivant dans le phpadmin
 > airbnb.sql 
 
 Pour pouvoir aller dans /server faire de mem
@@ -37,6 +39,6 @@ Pour pouvoir aller dans /server faire de mem
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbOTEwNTI3OTU4LC02MDc5MzAzNDIsLTE5Nz
-g2NTIyNDcsLTMzMjQ1NTM2M119
+eyJoaXN0b3J5IjpbLTgzNjc1MTU4Nyw5MTA1Mjc5NTgsLTYwNz
+kzMDM0MiwtMTk3ODY1MjI0NywtMzMyNDU1MzYzXX0=
 -->
