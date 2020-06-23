@@ -27,6 +27,8 @@ Pour pouvoir aller dans /client faire un
 	npm install
 
  - ### Server
+Import le ficher suivant dans le php amini
+> airbnb.sql 
 
 Pour pouvoir aller dans /server faire de mem
 
@@ -35,6 +37,6 @@ Pour pouvoir aller dans /server faire de mem
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTYwNzkzMDM0MiwtMTk3ODY1MjI0NywtMz
-MyNDU1MzYzXX0=
+eyJoaXN0b3J5IjpbOTEwNTI3OTU4LC02MDc5MzAzNDIsLTE5Nz
+g2NTIyNDcsLTMzMjQ1NTM2M119
 -->
