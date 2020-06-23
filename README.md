@@ -6,7 +6,7 @@ App en vue js et avec une Restfull api en Express
 ### Server
 /src
 
- - /db
+ - /db 
 		 airbnb.sql 
 		 index.js
 		 
@@ -21,7 +21,9 @@ App en vue js et avec une Restfull api en Express
 		 user.js
 		 verifytoken.js
 		 search.js
-	-/
+ - Index.js
+
+#### db
 ### Client
 
 ## Instalation
@@ -43,7 +45,7 @@ Pour pouvoir aller dans /server faire de mem
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1ODE4NzUyNjYsLTgzNjc1MTU4Nyw5MT
-A1Mjc5NTgsLTYwNzkzMDM0MiwtMTk3ODY1MjI0NywtMzMyNDU1
-MzYzXX0=
+eyJoaXN0b3J5IjpbMTIwNjk2MjczMiwtODM2NzUxNTg3LDkxMD
+UyNzk1OCwtNjA3OTMwMzQyLC0xOTc4NjUyMjQ3LC0zMzI0NTUz
+NjNdfQ==
 -->
