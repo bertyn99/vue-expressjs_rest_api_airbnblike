@@ -69,8 +69,8 @@ Racine du serveur api:
 ### User
 | Requete | Type   | Explication | Json |  
 |--|--|--|--|
-| /:id| get | re |  |
-|  |  |  |  |
+| /:id| get | renvoie les info du user avec l'io correspondant |  |
+| /:id | put | mettre a jour les info du user avce l'id correspondant |  |
 |  |  |  |  |
 |  |  |  |  |
 |  |  |  |  |
@@ -78,7 +78,7 @@ Racine du serveur api:
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEwOTM3NjQ4OCwxOTkwNjM5MDAxLDU4ND
+eyJoaXN0b3J5IjpbLTE1Nzc1Mzc4MywxOTkwNjM5MDAxLDU4ND
 kxNzY2NCwxOTU0NTY3NTY3LC03NjY3Njg2NzQsMTIwNjk2Mjcz
 MiwtODM2NzUxNTg3LDkxMDUyNzk1OCwtNjA3OTMwMzQyLC0xOT
 c4NjUyMjQ3LC0zMzI0NTUzNjNdfQ==
