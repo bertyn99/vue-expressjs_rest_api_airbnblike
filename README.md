@@ -9,18 +9,21 @@ App en vue js et avec une Restfull api en Express
 
 
 ## Instalation
+
+ - ### Client
+
 Pour pouvoir aller dans /client faire un
 
-npm install
+	npm install
 
-  
+ - ### Server
 
 Pour pouvoir aller dans /server faire de mem
 
-npm install
+	npm install
 
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTA2MTI5MjU2MSwtMzMyNDU1MzYzXX0=
+eyJoaXN0b3J5IjpbLTE5Mzk4NzQ3MDMsLTMzMjQ1NTM2M119
 -->
