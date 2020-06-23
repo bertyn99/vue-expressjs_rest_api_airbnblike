@@ -26,21 +26,23 @@ App en vue js et avec une Restfull api en Express
 ### Client
 /src
 
- - /db 
+ - /components
 		 airbnb.sql 
 		 index.js
 		 
- - /model
+ - /router
 		user.js
 		goods.js
 		localalisation.js
 		imgUrl.js
  
- - /routes
+ - /store
 		 goods.js
 		 user.js
 		 verifytoken.js
 		 search.js
+ - /views
+ 
  - Index.js
 
 ## Instalation
@@ -62,7 +64,7 @@ Pour pouvoir aller dans /server faire de mem
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTc2Njc2ODY3NCwxMjA2OTYyNzMyLC04Mz
-Y3NTE1ODcsOTEwNTI3OTU4LC02MDc5MzAzNDIsLTE5Nzg2NTIy
-NDcsLTMzMjQ1NTM2M119
+eyJoaXN0b3J5IjpbMTk1NDU2NzU2NywtNzY2NzY4Njc0LDEyMD
+Y5NjI3MzIsLTgzNjc1MTU4Nyw5MTA1Mjc5NTgsLTYwNzkzMDM0
+MiwtMTk3ODY1MjI0NywtMzMyNDU1MzYzXX0=
 -->
