@@ -91,8 +91,8 @@ Racine du serveur api:
 |  | post | Créer **la réservation** d'un user correspondant |  |
 |  | post | Annuler **une réservation**  les info des annonces  |  |
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjQzMjk0NDU1LDE5OTA2MzkwMDEsNTg0OT
-E3NjY0LDE5NTQ1Njc1NjcsLTc2Njc2ODY3NCwxMjA2OTYyNzMy
-LC04MzY3NTE1ODcsOTEwNTI3OTU4LC02MDc5MzAzNDIsLTE5Nz
-g2NTIyNDcsLTMzMjQ1NTM2M119
+eyJoaXN0b3J5IjpbLTE0Mjg4NjQ4MDIsMjQzMjk0NDU1LDE5OT
+A2MzkwMDEsNTg0OTE3NjY0LDE5NTQ1Njc1NjcsLTc2Njc2ODY3
+NCwxMjA2OTYyNzMyLC04MzY3NTE1ODcsOTEwNTI3OTU4LC02MD
+c5MzAzNDIsLTE5Nzg2NTIyNDcsLTMzMjQ1NTM2M119
 -->
