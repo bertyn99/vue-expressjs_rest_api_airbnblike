@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import Api from 'axios'
 
 Vue.use(Vuex)
-const URL = 'http://151.80.57.11:3000/api/users'
+const URL = 'http://151.80.57.11:3000/api'
 export default new Vuex.Store({
   state: {
     goods: [],
@@ -41,9 +41,11 @@ export default new Vuex.Store({
       })
     },
     async loadGoods ({ commit }) {
-      const response = await Api.get('/goods')
-      const goods = response.data.data
-      commit('SET_GOODS', goods.map(u => u))
+      const response = await Api.get(URL + '/goods')
+      const goods = response.data
+      console.log(URL + '/goods')
+      console.log(goods)
+      commit('SET_GOODS', goods)
     }
   },
   modules: {
