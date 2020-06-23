@@ -18,7 +18,7 @@
               <p class="my-4">Hello from modal!</p>
             </b-modal>
           </template>
-            <b-nav-item-dropdown  v-if="isConnected(5) == true" right>
+            <b-nav-item-dropdown    right>
                 <template v-slot:button-content>
                   <em>User</em>
                 </template>
@@ -57,6 +57,7 @@
 }
 </style>
 <script>
+import { mapState } from 'vuex';
 export default {
   prop: {
     user: Boolean
