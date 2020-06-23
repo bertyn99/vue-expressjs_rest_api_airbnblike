@@ -7,7 +7,7 @@ App en vue js et avec une Restfull api en Express
 /src
 
  - /db
-	
+			 -airbnb
  - /model
  - /routes
 
@@ -30,6 +30,6 @@ Pour pouvoir aller dans /server faire de mem
   
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUxNDcwMjc5MywtMTk3ODY1MjI0NywtMz
+eyJoaXN0b3J5IjpbMjEwMjI0OTY2NCwtMTk3ODY1MjI0NywtMz
 MyNDU1MzYzXX0=
 -->
