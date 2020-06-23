@@ -69,16 +69,24 @@ Racine du serveur api:
 ### User
 | Requete | Type   | Explication | Json |  
 |--|--|--|--|
-| /:id| get | renvoie les info du user avec l'io correspondant |  |
+| user/:id| get | renvoie les info du user avec l'io correspondant |  |
 | /:id | put | mettre a jour les info du user avce l'id correspondant |  |
 | /login | post | se connecter |  |
 | /signup | post | s'incrire |  |
-|--|--|---|---|
+
+### User
+| Requete | Type   | Explication | Json |  
+|--|--|--|--|
+| /:id| get | renvoie les info de l'annonce avec l'id correspondant |  |
+| /:id | put | mettre a jour les info de l'annonce  avce l'id correspondant |  |
+| /login | post | se connecter |  |
+| /signup | post | s'incrire |  |
+
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE5NzEwMTAyMywxOTkwNjM5MDAxLDU4ND
+eyJoaXN0b3J5IjpbMjAyOTA2MDMzOCwxOTkwNjM5MDAxLDU4ND
 kxNzY2NCwxOTU0NTY3NTY3LC03NjY3Njg2NzQsMTIwNjk2Mjcz
 MiwtODM2NzUxNTg3LDkxMDUyNzk1OCwtNjA3OTMwMzQyLC0xOT
 c4NjUyMjQ3LC0zMzI0NTUzNjNdfQ==
