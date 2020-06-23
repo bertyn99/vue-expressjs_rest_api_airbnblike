@@ -2,6 +2,8 @@ const express = require('express')
 const db = require('../db/index')
 const router = express.Router();
 
+
+//
 router.get("/goods/", async (req, res) => {
     try {
       let results = await db.getAllRealEstate();
@@ -14,6 +16,8 @@ router.get("/goods/", async (req, res) => {
   
   });
 
+
+  //renvoie les info de l’annonce avec l’id correspondant
 router.get("/goods/:id", async (req, res) => {
     try {
       let results = await db.getRealEstate(parseInt(req.params.id));
@@ -26,6 +30,7 @@ router.get("/goods/:id", async (req, res) => {
   
   });
   
+  //renvoie les info d'une annonce d'un user correspondant
   router.get("/users/:userid/goods/:id", async (req, res) => {
     try {
       
@@ -38,6 +43,8 @@ router.get("/goods/:id", async (req, res) => {
     }
   
   });
+
+  //renvoie les info des annonces d'un user
   router.get("/users/:userid/goods/", async (req, res) => {
     try {
      
@@ -51,6 +58,7 @@ router.get("/goods/:id", async (req, res) => {
   
   });
   
+  //créer un annonce
   router.post("/users/:id/goods/new", async (req, res) => {
     try {
       const address = new Localisation(req.body.city, req.body.streetaddress, req.body.road, req.body.code, req.body.details);
@@ -65,6 +73,8 @@ router.get("/goods/:id", async (req, res) => {
       res.sendStatus(500)
     }
   });
+
+  //mettre a jour les info de l'annonce avce l'id correspondant
   router.put("/:id/goods/:id", async (req, res) => {
     try {
       let form=[]

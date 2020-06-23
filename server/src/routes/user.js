@@ -28,6 +28,8 @@ router.get("/", async (req, res, next) => {
     }
   
   });
+
+  //renvoie les info du user avec l'id correspondant
   router.get("/:id", async (req, res) => {
     let results
     try {
@@ -43,6 +45,7 @@ router.get("/", async (req, res, next) => {
   
   });
   
+  //s'incrire
   router.post("/signup", async (req, res) => {
     //validate data
     const {error}= registerValidation(req.body)
@@ -78,6 +81,7 @@ router.get("/", async (req, res, next) => {
   
   });
   
+  //se connecter
   router.post('/login', async (req, res)=> {
     //validate data
     const {error}= loginValidation(req.body)
@@ -99,6 +103,7 @@ router.get("/", async (req, res, next) => {
     res.send('Logged in')
   });
 
+  //mettre a jour les info du user avce l'id correspondant
   router.put("/:id", verify, async (req, res) => {
     console.log('t')
      try {
