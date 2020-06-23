@@ -79,8 +79,8 @@ Racine du serveur api:
 |--|--|--|--|
 | goods/:id | get | renvoie les info de **l'annonce** avec l'id correspondant |  |
 | goods/:id | put | mettre a jour les info de **l'annonce**  avce l'id correspondant |  |
-| /users/:userid/goods/:id | post | renvoie les info **d'une annonce** d'un user correspondant |  |
-| /users/:userid/goods/ | post | renvoie les info des annonces d'un **user** |  |
+| /users/:userid/goods/:id | get | renvoie les info **d'une annonce** d'un user correspondant |  |
+| /users/:userid/goods/ | get | renvoie les info des annonces d'un **user** |  |
 
 ### Reservation
 | Requete | Type   | Explication | Json |  
@@ -91,8 +91,9 @@ Racine du serveur api:
 |  | post | Créer **la réservation** d'un user  correspondant |  |
 |  | post | Annuler **une réservation**  les info des annonces  |  |
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEyNjgyNjI5NDMsMjQzMjk0NDU1LDE5OT
-A2MzkwMDEsNTg0OTE3NjY0LDE5NTQ1Njc1NjcsLTc2Njc2ODY3
-NCwxMjA2OTYyNzMyLC04MzY3NTE1ODcsOTEwNTI3OTU4LC02MD
-c5MzAzNDIsLTE5Nzg2NTIyNDcsLTMzMjQ1NTM2M119
+eyJoaXN0b3J5IjpbMTM1NjgzNjk2NSwtMTI2ODI2Mjk0MywyND
+MyOTQ0NTUsMTk5MDYzOTAwMSw1ODQ5MTc2NjQsMTk1NDU2NzU2
+NywtNzY2NzY4Njc0LDEyMDY5NjI3MzIsLTgzNjc1MTU4Nyw5MT
+A1Mjc5NTgsLTYwNzkzMDM0MiwtMTk3ODY1MjI0NywtMzMyNDU1
+MzYzXX0=
 -->
