@@ -24,8 +24,6 @@
         <div v-else>
           <template>
             <b-button v-b-modal.modal-0.5><router-link to="/login"><em>Login</em></router-link> </b-button>
-            
-            </b-modal>
           </template>
         </div>
         </b-navbar-nav>
