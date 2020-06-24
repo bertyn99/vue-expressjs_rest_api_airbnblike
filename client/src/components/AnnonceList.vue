@@ -1,8 +1,15 @@
 <template>
 <div>
-  <div v-for="good in goods" :key="good.id">
-     <AnnonceCard :nom="{{good.name}}" ></AnnonceCard>
-  </div>
+  <b-card-group v-for="good in goods" :key="good.id" deck>
+     <AnnonceCard>
+        <template v-slot:name>
+            {{good.name}}
+        </template>
+        <template v-slot:description>
+            {{good.description}}
+        </template>
+     </AnnonceCard>
+  </b-card-group>
 </div>
 </template>
 
@@ -11,8 +18,9 @@ import { mapState } from 'vuex'
 import AnnonceCard from '@/components/AnnonceCard.vue'
 
 export default {
-  component: {
-    name:'AnnonceCard'
+  name: 'AnnonceList',
+  components: {
+    AnnonceCard
   },
   computed: {
     ...mapState(['goods'])
