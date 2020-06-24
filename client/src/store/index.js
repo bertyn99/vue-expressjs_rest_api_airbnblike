@@ -28,6 +28,14 @@ export default new Vuex.Store({
     },
     SET_GOODS (state, goods) {
       state.goods = goods
+    },
+    LOGOUT_USER (state) {
+      state.currentUser = {}
+      window.localStorage.currentUser = JSON.stringify({})
+    },
+    SET_CURRENT_USER (state, user) {
+      state.currentUser = user
+      window.localStorage.currentUser = JSON.stringify(user)
     }
   },
   actions: {
@@ -46,7 +54,42 @@ export default new Vuex.Store({
       console.log(URL + '/goods')
       console.log(goods)
       commit('SET_GOODS', goods)
-    }
+    },
+    async loadUser ({ commit }) {
+      const response = await Api.get(URL + '/goods')
+      const goods = response.data
+      console.log(URL + '/goods')
+      console.log(goods)
+      commit('SET_USER', goods)
+    },
+    logoutUser ({ commit }) {
+      commit('LOGOUT_USER')
+    },
+    loginUser ({ commit }, user) {
+      commit('SET_CURRENT_USER', user)
+    },
+    async login({commit, dispatch}, loginInfo) {
+      try {
+        let response = await Api().post('/sessions', loginInfo);
+        let user = response.data.data.attributes;
+
+        commit('SET_CURRENT_USER', user);
+        return user;
+      } catch {
+        return {error: "Email/password combination was incorrect.  Please try again."}
+      }   
+    },
+    async register({commit, dispatch}, registrationInfo) {
+      try {
+        let response = await Api().post('/users', registrationInfo);
+        let user = response.data.data.attributes;
+
+        commit('SET_CURRENT_USER', user);
+        return user;
+      } catch {
+        return { error: "There was an error.  Please try again." }
+      }
+    },
   },
   modules: {
   }
