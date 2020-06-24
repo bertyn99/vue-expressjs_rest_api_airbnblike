@@ -12,23 +12,23 @@
           <b-navbar-nav>
           <b-nav-item href="#"> <router-link to="/goods">goods</router-link> </b-nav-item>
           </b-navbar-nav>
-          <template>
-            <b-button v-b-modal.modal-0.5><em>User</em> </b-button>
-            <b-modal id="modal-1" title="BootstrapVue">
-              <p class="my-4">Hello from modal!</p>
-            </b-modal>
-          </template>
-            <b-nav-item-dropdown  v-if="isConnected(5) == true" right>
+        <div v-if="currentUser.name">
+            <b-nav-item-dropdown    right>
                 <template v-slot:button-content>
-                  <em>User</em>
+                  <em>{{ currentUser.name}}</em>
                 </template>
               <b-dropdown-item href="#"><router-link to="/user">Profile</router-link></b-dropdown-item>
-              <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+              <b-dropdown-item href="#" @click="logoutUser">Log Out</b-dropdown-item>
             </b-nav-item-dropdown>
+        </div>
+        <div v-else>
+          <template>
+            <b-button v-b-modal.modal-0.5><router-link to="/login"><em>Login</em></router-link> </b-button>
+          </template>
+        </div>
         </b-navbar-nav>
         </b-collapse>
       </b-navbar>
-
     </div>
     <router-view/>
   </div>
@@ -57,13 +57,14 @@
 }
 </style>
 <script>
+import { mapState } from 'vuex'
 export default {
-  prop: {
-    user: Boolean
+  computed: {
+    ...mapState(['currentUser'])
   },
-  method: {
-    isConnected (user) {
-      return false
+  methods: {
+    logoutUser () {
+      this.$store.dispatch('logoutUser')
     }
   }
 }
