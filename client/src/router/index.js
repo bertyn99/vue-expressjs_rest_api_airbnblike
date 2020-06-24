@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Location from '../views/Location.vue'
 import Goods from '../views/Goods.vue'
 import User from '../views/User.vue'
+import Login from '../views/Login.vue'
+import Register from '../views/Register.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -11,6 +13,16 @@ const routes = [
     path: '/',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
   },
   {
     path: '/location',
