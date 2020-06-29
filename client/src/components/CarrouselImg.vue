@@ -28,8 +28,8 @@
 
 <script>
 export default {
-   name: 'CarrouselImg',
-data () {
+  name: 'CarrouselImg',
+  data () {
     return {
       slide: 0,
       sliding: null
@@ -49,4 +49,3 @@ data () {
 <style>
 
 </style>
-
