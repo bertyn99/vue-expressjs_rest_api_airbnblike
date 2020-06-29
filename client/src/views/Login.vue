@@ -1,22 +1,14 @@
 <template>
-  <div>
-  </div>
+ <b-container>
+   <FormSignup></FormSignup>
+ </b-container>
 </template>
 
 <script>
-import validations from '@/components/utils/validations'
+import FormSignup from '@/components/FormSignup.vue'
 export default {
   name: 'Login',
-  data () {
-    return {
-      ...validations,
-      showPassword: false,
-      loginForm: {
-        email: '',
-        password: ''
-      }
-    }
-  },
+  components: { FormSignup },
   methods: {
     async loginUser (loginForm) {
       const user = await this.$store.dispatch('users/login', loginForm)
