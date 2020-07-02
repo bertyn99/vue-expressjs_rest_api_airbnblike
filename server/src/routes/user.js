@@ -100,7 +100,7 @@ router.get("/", async (req, res, next) => {
     //Create and assign a token 
     const token = jwt.sign({id: userExist[0].iduser}, process.env.TOKEN_SECRET)
     res.header('Auth-token', token);
-    res.send('Logged in')
+    res.send(userExist[0])
   });
 
   //mettre a jour les info du user avce l'id correspondant
