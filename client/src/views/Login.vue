@@ -1,6 +1,6 @@
 <template>
  <b-container>
-   <FormSignup></FormSignup>
+   <FormSignup :submitForm="loginUser" buttontxt="Login"></FormSignup>
  </b-container>
 </template>
 
@@ -11,12 +11,17 @@ export default {
   components: { FormSignup },
   methods: {
     async loginUser (loginForm) {
-      const user = await this.$store.dispatch('users/login', loginForm)
+      const user = await this.$store.dispatch('login', loginForm)
       if (user.error) {
-        this.$store.dispatch('snackbar/setSnackbar', { color: 'error', text: user.error })
+        alert(user.error)
+        /*  this.$store.dispatch('snackbar/setSnackbar', { color: 'error', text: user.error }) */
       } else {
-        this.$store.dispatch('snackbar/setSnackbar', { text: 'Thank you for signing in, ' + user.name })
+        /* this.$store.dispatch('snackbar/setSnackbar', { text: 'Thank you for signing in, ' + user.name }) */
+        alert('Thank you for sign in ' + user.name)
       }
+    },
+    onSubmit (loginForm) {
+      console.log(loginForm)
     }
   }
 }
