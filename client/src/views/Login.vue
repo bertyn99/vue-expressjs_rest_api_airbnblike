@@ -1,6 +1,6 @@
 <template>
  <b-container>
-   <FormSignup :submitForm="loginUser" buttontxt="Login"></FormSignup>
+   <FormSignup :submitForm="loginUser" buttontxt="Login" fullForm="false" ></FormSignup>
  </b-container>
 </template>
 
@@ -19,9 +19,6 @@ export default {
         /* this.$store.dispatch('snackbar/setSnackbar', { text: 'Thank you for signing in, ' + user.name }) */
         alert('Thank you for sign in ' + user.name)
       }
-    },
-    onSubmit (loginForm) {
-      console.log(loginForm)
     }
   }
 }
