@@ -10,7 +10,7 @@ export default new Vuex.Store({
   state: {
     goods: [],
     user: [],
-    currentUser: { name: 'user' },
+    currentUser: {},
     reservation: [],
     loading: true
   },
@@ -76,9 +76,7 @@ export default new Vuex.Store({
       try {
         console.log('test')
         const response = await api.post(URL + '/users/login', loginInfo)
-        console.log(response)
         const user = response.data
-        console.log(user)
         commit('SET_CURRENT_USER', user)
         return user
       } catch {
@@ -87,9 +85,10 @@ export default new Vuex.Store({
     },
     async register ({ commit }, registrationInfo) {
       try {
-        const response = await api().post('/users', registrationInfo)
-        const user = response.data.data.attributes
-
+        const response = await api.post(URL + '/users/signup', registrationInfo)
+        console.log(response.data.insertId)
+        const user = await api.get(URL + '/users/' + response.data.insertId)
+        console.log(user)
         commit('SET_CURRENT_USER', user)
         return user
       } catch {

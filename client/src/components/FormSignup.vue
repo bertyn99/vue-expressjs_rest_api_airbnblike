@@ -2,7 +2,7 @@
   <div>
      <ValidationObserver ref="observer"  v-slot="{ validate }">
       <b-form @submit.prevent="validate(submitForm(userInfo))">
-       <ValidationProvider rules="required|min:3" name="Name" v-slot="{ valid, errors }">
+       <ValidationProvider rules="required|min:3" name="nom" v-slot="{ valid, errors }">
         <b-form-group
           id="input-group-0"
           label="Your First Name:"
@@ -11,7 +11,7 @@
         v-if="fullForm == 'true'">
           <b-form-input
             id="input-0"
-            v-model="userInfo.name"
+            v-model="userInfo.nom"
             type="text"
             required
             placeholder="Enter Name"
@@ -21,7 +21,7 @@
         </b-form-group>
         </ValidationProvider>
 
-        <ValidationProvider rules="required|min:3" name="LastName" v-slot="{ valid, errors }">
+        <ValidationProvider rules="required|min:3" name="prenom" v-slot="{ valid, errors }">
         <b-form-group
           id="input-group-1"
           label="Your Last Name:"
@@ -30,7 +30,7 @@
         v-if="fullForm == 'true'">
           <b-form-input
             id="input-1"
-            v-model="userInfo.name"
+            v-model="userInfo.prenom"
             type="text"
             required
             placeholder="Enter Last Name"
@@ -40,7 +40,7 @@
         </b-form-group>
         </ValidationProvider>
 
-        <ValidationProvider rules="required|min:6" name="Telephone" v-slot="{ valid, errors }">
+        <ValidationProvider rules="required|min:6" name="telephone" v-slot="{ valid, errors }">
         <b-form-group
           id="input-group-2"
           label="Your Phone Number:"

@@ -15,7 +15,7 @@
         <div v-if="currentUser.name">
             <b-nav-item-dropdown    right>
                 <template v-slot:button-content>
-                  <em>{{ currentUser.name}}</em>
+                  <em>{{ currentUser.nom}}</em>
                 </template>
               <b-dropdown-item href="#"><router-link to="/user">Profile</router-link></b-dropdown-item>
               <b-dropdown-item href="#" @click="logoutUser">Log Out</b-dropdown-item>
