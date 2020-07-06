@@ -10,14 +10,14 @@ export default {
   name: 'Register',
   components: { FormSignup },
   methods: {
-    async registerUser (loginForm) {
-      const user = await this.$store.dispatch('login', loginForm)
+    async registerUser (registerForm) {
+      const user = await this.$store.dispatch('register', registerForm)
       if (user.error) {
         alert(user.error)
         /*  this.$store.dispatch('snackbar/setSnackbar', { color: 'error', text: user.error }) */
       } else {
         /* this.$store.dispatch('snackbar/setSnackbar', { text: 'Thank you for signing in, ' + user.name }) */
-        alert('Thank you for sign in ' + user.name)
+        alert('Welcome to our app, ' + user.name)
       }
     }
   }
