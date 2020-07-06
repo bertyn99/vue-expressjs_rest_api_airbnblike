@@ -1,8 +1,10 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import Api from 'axios'
+import api from 'axios'
+import VueAxios from 'vue-axios'
 
 Vue.use(Vuex)
+Vue.use(VueAxios, api)
 const URL = 'http://151.80.57.11:3000/api'
 export default new Vuex.Store({
   state: {
@@ -42,21 +44,23 @@ export default new Vuex.Store({
     loadData ({
       commit
     }) {
-      Api.get(URL).then((response) => {
+      api.get(URL).then((response) => {
         // console.log(response.data, this)
         commit('updateGoods', response.data)
         commit('changeLoadingState', false)
       })
     },
-    async loadGoods ({ commit }) {
-      const response = await Api.get(URL + '/goods')
-      const goods = response.data
-      console.log(URL + '/goods')
-      console.log(goods)
-      commit('SET_GOODS', goods)
+    loadGoods ({ commit }) {
+      api.get(URL + '/goods').then((response) => {
+        const goods = response.data
+        console.log(URL + '/goods')
+        console.log(goods)
+        commit('SET_GOODS', goods)
+      }
+      )
     },
     async loadUser ({ commit }) {
-      const response = await Api.get(URL + '/goods')
+      const response = await api().get(URL + '/goods')
       const goods = response.data
       console.log(URL + '/goods')
       console.log(goods)
@@ -70,10 +74,11 @@ export default new Vuex.Store({
     },
     async login ({ commit }, loginInfo) {
       try {
-        const response = await Api().post(URL + '/users/login', loginInfo)
+        console.log('test')
+        const response = await api.post(URL + '/users/login', loginInfo)
         console.log(response)
         const user = response.data
-
+        console.log(user)
         commit('SET_CURRENT_USER', user)
         return user
       } catch {
@@ -82,7 +87,7 @@ export default new Vuex.Store({
     },
     async register ({ commit }, registrationInfo) {
       try {
-        const response = await Api().post('/users', registrationInfo)
+        const response = await api().post('/users', registrationInfo)
         const user = response.data.data.attributes
 
         commit('SET_CURRENT_USER', user)
