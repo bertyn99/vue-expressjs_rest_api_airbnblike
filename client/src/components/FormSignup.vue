@@ -117,9 +117,6 @@ export default {
     return {
       showPassword: false,
       userInfo: {
-        name: '',
-        prenom: '',
-        tel: '',
         email: '',
         password: ''
       }
