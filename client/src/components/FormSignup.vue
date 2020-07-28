@@ -2,7 +2,9 @@
   <div>
      <ValidationObserver ref="observer"  v-slot="{ validate }">
       <b-form @submit.prevent="validate(submitForm(userInfo))">
-       <ValidationProvider rules="required|min:3" name="nom" v-slot="{ valid, errors }">
+       <ValidationProvider
+        rules="required|min:3"
+        name="Nom" v-slot="{ valid, errors }">
         <b-form-group
           id="input-group-0"
           label="Your First Name:"
@@ -21,7 +23,7 @@
         </b-form-group>
         </ValidationProvider>
 
-        <ValidationProvider rules="required|min:3" name="prenom" v-slot="{ valid, errors }">
+        <ValidationProvider rules="required|min:3" name="Prenom" v-slot="{ valid, errors }">
         <b-form-group
           id="input-group-1"
           label="Your Last Name:"
@@ -40,7 +42,7 @@
         </b-form-group>
         </ValidationProvider>
 
-        <ValidationProvider rules="required|min:6" name="telephone" v-slot="{ valid, errors }">
+        <ValidationProvider rules="required|min:6" name="Telephone" v-slot="{ valid, errors }">
         <b-form-group
           id="input-group-2"
           label="Your Phone Number:"
@@ -80,7 +82,6 @@
         <ValidationProvider
           rules="required|min:3"
           name="Password"
-          vid="password"
           v-slot="{ valid, errors }"
         >
         <b-form-group id="input-group-4" label="Your Password:" label-for="input-4">

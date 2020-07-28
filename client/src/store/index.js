@@ -74,9 +74,10 @@ export default new Vuex.Store({
     },
     async login ({ commit }, loginInfo) {
       try {
-        console.log('test')
+        console.log(loginInfo)
         const response = await api.post(URL + '/users/login', loginInfo)
         const user = response.data
+        console.log(user)
         commit('SET_CURRENT_USER', user)
         return user
       } catch {
@@ -84,13 +85,20 @@ export default new Vuex.Store({
       }
     },
     async register ({ commit }, registrationInfo) {
-      try {
-        const response = await api.post(URL + '/users/signup', registrationInfo)
+      /* try {
+        const response = await api.post(URL + '/users/signup/', registrationInfo, { headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8', 'Access-Control-Allow-Origin': '*', Authorization: 'Basic Og==' } })
         console.log(response.data.insertId)
         const user = await api.get(URL + '/users/' + response.data.insertId)
         console.log(user)
         commit('SET_CURRENT_USER', user)
         return user
+      } catch {
+        return { error: 'There was an error.  Please try again.' }
+      } */
+      try {
+        console.log(registrationInfo)
+        const response = await api.post(URL + '/users/signup', registrationInfo)
+        console.log(response)
       } catch {
         return { error: 'There was an error.  Please try again.' }
       }
